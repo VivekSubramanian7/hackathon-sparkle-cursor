@@ -574,7 +574,7 @@ function Index() {
             </div>
             <div className="nc-faq">
               {[
-                { q: "Who sets the baseline payout?", a: "Our Influencer Agent sets it for you — benchmarked against current market rates, the creator's geography, and their content category. You approve the number before the pool goes live, so there's no per-creator haggling and every accepted creator sees the same floor on the brief." },
+                { q: "Who sets the baseline payout?", a: "Our Scout agent (brand side) sets it for you — benchmarked against current market rates, the creator's geography, and their content category. You approve the number before the pool goes live, so there's no per-creator haggling and every accepted creator sees the same floor on the brief." },
                 { q: "What counts as a 'result' in the split?", a: "You pick the metric when you fund the pool: tracked clicks, attributed conversions, or verified views. Whatever you pick, it's published on the campaign brief so every creator sees the same rule." },
                 { q: "Can a creator earn zero above baseline?", a: "Yes — if their post drives no tracked activity, they still keep the baseline but earn nothing from the performance pool. The upside is uncapped in the other direction." },
                 { q: "How is this different from other influencer platforms?", a: "Other platforms are directories — they hand you a list of creators and leave the negotiation, rate cards, and payout math to you. No Cap replaces that with one funded pool, one published formula, and one settlement: brands cap total spend up front, creators apply into a rule they can see, and the split follows tracked performance. Variable-cost by design, not by spreadsheet." },
