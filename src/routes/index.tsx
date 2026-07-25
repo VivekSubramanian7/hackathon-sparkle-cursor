@@ -66,6 +66,12 @@ function Index() {
   const [budget, setBudget] = useState(10000);
   const [baseline, setBaseline] = useState(200);
   const [creators, setCreators] = useState<Creator[]>(initialCreators);
+  const [promptTab, setPromptTab] = useState(0);
+  const prompts = [
+    { t: "Launch a product drop", p: "Fund a $12K UGC pool for our new vitamin C serum — 25 skincare creators, split by tracked add-to-carts." },
+    { t: "Push a bestseller", p: "Reignite our top SKU with 40 TikTok creators, baseline $150, pool splits on verified 3s views + swipe-ups." },
+    { t: "Test a new segment", p: "Open a $6K pool to pet-parent creators for the new chew-toy line, split by attributed conversions." },
+  ];
 
   const { payouts, remaining, over } = useMemo(() => {
     const baselineTotal = baseline * creators.length;
@@ -142,6 +148,131 @@ function Index() {
               {["Skincare", "Supplements", "Apparel", "Home & Kitchen", "Pet", "Food & Beverage"].map((b) => (
                 <span key={b} className="nc-badge">{b}</span>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="nc-logos-strip">
+          <div className="nc-wrap">
+            <div className="nc-logos-label">Trusted by DTC product brands running UGC through influencers</div>
+            <div className="nc-logos-row">
+              {["GLOWCRAFT", "NORTHRUN", "petpost.", "Kindred&Co", "SODAPOP", "MERIDIAN", "BLOOMLAB", "wildhaus"].map((b) => (
+                <span key={b} className="nc-logo-mark">{b}</span>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="nc-pullquote">
+          <div className="nc-wrap">
+            <div className="nc-pq-brand">● GLOWCRAFT</div>
+            <blockquote>
+              &ldquo;UGC through influencers worked — but the math never did.
+              One pool, one formula, and the payout literally follows the traffic.
+              That&rsquo;s how we found No Cap.&rdquo;
+            </blockquote>
+            <div className="nc-pq-who">
+              <img src={px(15676271, 160)} alt="Rani Patel" loading="lazy" />
+              <div>
+                <div className="n">Rani Patel</div>
+                <div className="r">Head of Growth, Glowcraft (Skincare DTC)</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="nc-section">
+          <div className="nc-wrap">
+            <div className="nc-section-head">
+              <span className="nc-eyebrow">From a product goal to a live UGC pool — in one prompt</span>
+              <h2>Tell the Influencer Agent what you&rsquo;re shipping. It drafts the pool.</h2>
+              <p>Pick a goal, describe the drop, and No Cap proposes the pool size, baseline, tracked metric, and creator shortlist — you approve before it goes live.</p>
+            </div>
+            <div className="nc-prompt-tabs">
+              {prompts.map((pr, i) => (
+                <button key={pr.t} type="button" className={`nc-prompt-tab${i === promptTab ? " on" : ""}`} onClick={() => setPromptTab(i)}>
+                  {pr.t}
+                </button>
+              ))}
+            </div>
+            <div className="nc-prompt-box">
+              <span className="nc-prompt-text">{prompts[promptTab].p}</span>
+              <button type="button" className="nc-prompt-send" aria-label="Send">↑</button>
+            </div>
+            <div className="nc-prompt-foot">
+              <Link to="/how-it-works" className="nc-mini-play">▶  Watch the 60-sec walkthrough</Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="nc-platforms">
+          <div className="nc-wrap">
+            <div className="nc-platforms-label">Available across every UGC surface your DTC brand ships on</div>
+            <div className="nc-platforms-row">
+              {["TikTok", "Instagram Reels", "YouTube Shorts", "Pinterest", "Threads", "X"].map((p) => (
+                <span key={p} className="nc-platform">{p}</span>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="nc-section">
+          <div className="nc-wrap">
+            <div className="nc-section-head">
+              <span className="nc-eyebrow">Work with creators who actually respond</span>
+              <h2>Generic creator databases flood you with cold profiles. Our pool applicants opt in — they&rsquo;re already interested in your category.</h2>
+            </div>
+            <div className="nc-respond-stats">
+              <div><div className="n">8×</div><div className="l">Applicant response rates</div><div className="s">vs. cold DM outreach</div></div>
+              <div><div className="n">3×</div><div className="l">Faster campaign turnaround</div><div className="s">vs. per-creator negotiated deals</div></div>
+            </div>
+            <div className="nc-respond-orbit" aria-hidden="true">
+              <span className="nc-orbit-arc a1" />
+              <span className="nc-orbit-arc a2" />
+              <span className="nc-orbit-arc a3" />
+              <div className="bubble b1"><img src={px(35035634, 140)} alt="" /><span>Count me in</span></div>
+              <div className="bubble b2"><img src={px(38285050, 140)} alt="" /><span>Love this — I&rsquo;m in!</span></div>
+              <div className="bubble b3"><img src={px(15676271, 140)} alt="" /><span>Applying now</span></div>
+              <div className="bubble b4"><img src={px(30805103, 140)} alt="" /><span>This looks great</span></div>
+              <div className="bubble b5"><img src={px(8294854, 140)} alt="" /><span>I&rsquo;m interested!</span></div>
+              <div className="brief">We&rsquo;d love UGC from you for our vitamin C serum drop — TikTok + Reels. Open a pool?</div>
+            </div>
+          </div>
+        </section>
+
+        <section className="nc-section nc-panel-bg">
+          <div className="nc-wrap">
+            <div className="nc-feature-two">
+              <div className="nc-ft-card">
+                <h3>Keep UGC campaigns moving without the manual work</h3>
+                <p>The Influencer Agent surfaces what needs attention in one action center: pending applicants, missed content deadlines, follow-ups. You approve, it moves.</p>
+                <div className="nc-ft-mock">
+                  <div className="nc-ft-row"><b>Q2 Skincare Drop</b><span className="dot">● Action needed</span></div>
+                  <div className="nc-ft-note">21 applied creators · Estimated spend $8.4K (30% under pool cap)</div>
+                  <div className="nc-ft-inner">
+                    <div className="q">4 creators missed their draft deadline — what next?</div>
+                    <div className="opt"><span>A</span><b>Send a reminder to overdue creators</b></div>
+                    <div className="opt"><span>B</span><b>Extend the deadline by 5 days</b></div>
+                    <div className="opt muted"><span>C</span>Ask the agent to do something else…</div>
+                  </div>
+                </div>
+              </div>
+              <div className="nc-ft-card">
+                <h3>Fast, compliant payouts — no matter how many creators</h3>
+                <p>Onboard once and pay every accepted creator through the No Cap wallet. Baseline settles on post, performance share settles when the tracking window closes.</p>
+                <div className="nc-ft-mock stack">
+                  <div className="nc-ft-name">@sagebotanicals <img src={px(38285050, 120)} alt="" /></div>
+                  <div className="nc-ft-name">@marakeeps <img src={px(15676271, 120)} alt="" /></div>
+                  <div className="nc-ft-name">@reallytina <img src={px(8294854, 120)} alt="" /></div>
+                  <div className="nc-ft-wallet">
+                    <div><span>23 creators to pay</span><b>$34,550</b></div>
+                    <div className="nc-ft-actions">
+                      <span className="nc-btn nc-btn-primary sm">Pay with No Cap Wallet</span>
+                      <span className="nc-btn nc-btn-ghost sm">Select payment method</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
