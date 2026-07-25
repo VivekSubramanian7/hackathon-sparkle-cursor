@@ -154,9 +154,9 @@ function Index() {
 
         <section className="nc-logos-strip">
           <div className="nc-wrap">
-            <div className="nc-logos-label">Trusted by DTC product brands running UGC through influencers</div>
+            <div className="nc-logos-label">Trusted by DTC product brands across the US, Germany &amp; India</div>
             <div className="nc-logos-row">
-              {["GLOWCRAFT", "NORTHRUN", "petpost.", "Kindred&Co", "SODAPOP", "MERIDIAN", "BLOOMLAB", "wildhaus"].map((b) => (
+              {["Magic Spoon", "Quince", "Lovevery", "KoRo", "Purelei", "PrepMyMeal", "BlissClub", "Snitch", "The Pant Project"].map((b) => (
                 <span key={b} className="nc-logo-mark">{b}</span>
               ))}
             </div>
@@ -165,17 +165,17 @@ function Index() {
 
         <section className="nc-pullquote">
           <div className="nc-wrap">
-            <div className="nc-pq-brand">● GLOWCRAFT</div>
+            <div className="nc-pq-brand">● MAGIC SPOON</div>
             <blockquote>
               &ldquo;UGC through influencers worked — but the math never did.
               One pool, one formula, and the payout literally follows the traffic.
               That&rsquo;s how we found No Cap.&rdquo;
             </blockquote>
             <div className="nc-pq-who">
-              <img src={px(15676271, 160)} alt="Rani Patel" loading="lazy" />
+              <img src={px(30805103, 160)} alt="Jordan Weiss" loading="lazy" />
               <div>
-                <div className="n">Rani Patel</div>
-                <div className="r">Head of Growth, Glowcraft (Skincare DTC)</div>
+                <div className="n">Jordan Weiss</div>
+                <div className="r">Head of Growth, Magic Spoon (US · Cereal DTC)</div>
               </div>
             </div>
           </div>
