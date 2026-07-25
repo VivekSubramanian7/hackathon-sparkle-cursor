@@ -346,6 +346,37 @@
   background: rgba(255,95,31,0.10); color: var(--nc-accent); font-size: 14px;
 }
 
+.nc-user-trigger {
+  font-family: inherit; font-size: 14px; color: var(--nc-cream);
+  background: rgba(17,17,17,0.04); border: 1px solid var(--nc-line);
+  cursor: pointer; padding: 6px 12px 6px 6px; border-radius: 999px;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: background .2s ease, border-color .2s ease;
+  max-width: 220px;
+}
+.nc-login-group:hover .nc-user-trigger,
+.nc-login-group:focus-within .nc-user-trigger { background: #fff; border-color: var(--nc-line-strong); }
+.nc-user-avatar {
+  width: 28px; height: 28px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--nc-accent); color: #fff; font-weight: 600; font-size: 13px;
+}
+.nc-user-name {
+  max-width: 140px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  font-weight: 500;
+}
+.nc-user-email {
+  padding: 4px 12px 10px; font-size: 12px; color: var(--nc-cream-soft);
+  border-bottom: 1px solid var(--nc-line); margin-bottom: 6px;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.nc-menu-btn {
+  display: flex; align-items: center; gap: 12px; padding: 12px; width: 100%;
+  background: none; border: 0; text-align: left; cursor: pointer;
+  font: inherit; color: inherit;
+}
+.nc-menu-btn:hover { background: rgba(17,17,17,0.04); }
+
 /* signup / signin tabs on /login */
 .nc-role-tabs {
   display: inline-flex; align-self: center; padding: 4px;
