@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteShell } from "@/components/site-chrome";
 import { useDemoStore } from "@/lib/demo-store";
 
-export const Route = createFileRoute("/campaigns")({
+export const Route = createFileRoute("/campaigns/")({
   head: () => ({
     meta: [
       { title: "Open campaigns - No Cap" },
