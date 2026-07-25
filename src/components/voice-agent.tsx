@@ -95,10 +95,12 @@ export function VoiceAgent({
   initial,
   onDone,
   onCancel,
+  initialPhase,
 }: {
   initial?: Partial<VoiceAgentResult>;
   onDone: (r: VoiceAgentResult) => void;
   onCancel: (current: VoiceAgentResult) => void;
+  initialPhase?: "voice" | "review";
 }) {
   const rec = useRecorder();
   // Start on the first unanswered field so returning to voice resumes naturally.
@@ -115,7 +117,7 @@ export function VoiceAgent({
     }
     return QUESTIONS.length;
   })();
-  const [idx, setIdx] = useState(firstUnanswered);
+  const [idx, setIdx] = useState(initialPhase === "review" ? QUESTIONS.length : firstUnanswered);
   const [data, setData] = useState<VoiceAgentResult>(seeded);
   const [speaking, setSpeaking] = useState(false);
   const [thinking, setThinking] = useState(false);
