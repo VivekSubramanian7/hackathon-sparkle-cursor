@@ -21,6 +21,7 @@ import { Route as CreatorsRouteImport } from './routes/creators'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BrandCreateRouteImport } from './routes/brand.create'
+import { Route as ApiVoiceTtsRouteImport } from './routes/api/voice/tts'
 import { Route as ApiVoiceStructureRouteImport } from './routes/api/voice/structure'
 
 const ThesisRoute = ThesisRouteImport.update({
@@ -83,6 +84,11 @@ const BrandCreateRoute = BrandCreateRouteImport.update({
   path: '/brand/create',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiVoiceTtsRoute = ApiVoiceTtsRouteImport.update({
+  id: '/api/voice/tts',
+  path: '/api/voice/tts',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiVoiceStructureRoute = ApiVoiceStructureRouteImport.update({
   id: '/api/voice/structure',
   path: '/api/voice/structure',
@@ -103,6 +109,7 @@ export interface FileRoutesByFullPath {
   '/thesis': typeof ThesisRoute
   '/brand/create': typeof BrandCreateRoute
   '/api/voice/structure': typeof ApiVoiceStructureRoute
+  '/api/voice/tts': typeof ApiVoiceTtsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -118,6 +125,7 @@ export interface FileRoutesByTo {
   '/thesis': typeof ThesisRoute
   '/brand/create': typeof BrandCreateRoute
   '/api/voice/structure': typeof ApiVoiceStructureRoute
+  '/api/voice/tts': typeof ApiVoiceTtsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -134,6 +142,7 @@ export interface FileRoutesById {
   '/thesis': typeof ThesisRoute
   '/brand/create': typeof BrandCreateRoute
   '/api/voice/structure': typeof ApiVoiceStructureRoute
+  '/api/voice/tts': typeof ApiVoiceTtsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -151,6 +160,7 @@ export interface FileRouteTypes {
     | '/thesis'
     | '/brand/create'
     | '/api/voice/structure'
+    | '/api/voice/tts'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -166,6 +176,7 @@ export interface FileRouteTypes {
     | '/thesis'
     | '/brand/create'
     | '/api/voice/structure'
+    | '/api/voice/tts'
   id:
     | '__root__'
     | '/'
@@ -181,6 +192,7 @@ export interface FileRouteTypes {
     | '/thesis'
     | '/brand/create'
     | '/api/voice/structure'
+    | '/api/voice/tts'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -197,6 +209,7 @@ export interface RootRouteChildren {
   ThesisRoute: typeof ThesisRoute
   BrandCreateRoute: typeof BrandCreateRoute
   ApiVoiceStructureRoute: typeof ApiVoiceStructureRoute
+  ApiVoiceTtsRoute: typeof ApiVoiceTtsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -285,6 +298,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BrandCreateRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/voice/tts': {
+      id: '/api/voice/tts'
+      path: '/api/voice/tts'
+      fullPath: '/api/voice/tts'
+      preLoaderRoute: typeof ApiVoiceTtsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/voice/structure': {
       id: '/api/voice/structure'
       path: '/api/voice/structure'
@@ -309,6 +329,7 @@ const rootRouteChildren: RootRouteChildren = {
   ThesisRoute: ThesisRoute,
   BrandCreateRoute: BrandCreateRoute,
   ApiVoiceStructureRoute: ApiVoiceStructureRoute,
+  ApiVoiceTtsRoute: ApiVoiceTtsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
