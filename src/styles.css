@@ -654,8 +654,8 @@
 /* cta banner */
 .nc-cta-banner {
   background:
-    radial-gradient(ellipse 60% 100% at 50% 100%, rgba(255, 95, 31, 0.22), transparent 70%),
-    linear-gradient(160deg, rgba(14, 20, 22, 0.9), rgba(8, 12, 13, 0.95));
+    radial-gradient(ellipse 60% 100% at 50% 100%, rgba(255, 95, 31, 0.14), transparent 70%),
+    #ffffff;
   border: 1px solid var(--nc-line-strong);
   border-radius: 32px; padding: 72px 48px; text-align: center;
   backdrop-filter: blur(20px);
