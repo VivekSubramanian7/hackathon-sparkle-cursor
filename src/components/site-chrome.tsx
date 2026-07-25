@@ -64,7 +64,8 @@ export function SiteNav() {
               </button>
               <div className="nc-group-menu">
                 <Link to="/creators"><b>Creator marketplace</b><span>Real people, one published formula</span></Link>
-                <Link to="/start"><b>Apply to pools</b><span>Baseline + a share sized to results</span></Link>
+                <Link to="/campaigns"><b>Open campaigns</b><span>Browse briefs and apply in one tap</span></Link>
+                <Link to="/start"><b>Get started</b><span>Baseline + a share sized to results</span></Link>
               </div>
             </div>
           </div>
