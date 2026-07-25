@@ -92,6 +92,44 @@ export function maxSeats(poolEur: number, targetCpa: number): number {
   return Math.floor(poolEur / targetCpa);
 }
 
+// ---------- Single-field parsers for the conversational voice agent ----------
+
+export function parseAmount(text: string): number | undefined {
+  const amounts = findAmounts(text);
+  if (amounts.length) return Math.max(...amounts);
+  const m = /([\d]+(?:[.,]\d+)?)\s*(k|thousand|m|million)?/i.exec(text);
+  if (m) return normalizeAmount(m[1], m[2]);
+  return undefined;
+}
+
+export function parseCpa(text: string): number | undefined {
+  const cpa = findCpa(text);
+  if (cpa) return cpa;
+  return parseAmount(text);
+}
+
+export function parseWeight(text: string): number | undefined {
+  const lc = text.toLowerCase();
+  const pct = /([\d]{1,3})\s*%/.exec(lc);
+  if (pct) {
+    const n = Math.max(0, Math.min(100, parseInt(pct[1], 10)));
+    return Math.round(n) / 100;
+  }
+  const signupKw = /\b(signup|sign\s?up|conversion|install|sale|order|purchase|trial)\b/.test(lc);
+  const reachKw = /\b(reach|impression|view|awareness|brand|eyeballs)\b/.test(lc);
+  if (signupKw && !reachKw) return 0.8;
+  if (reachKw && !signupKw) return 0.3;
+  if (/both|balanced|mix|even/.test(lc)) return 0.5;
+  return undefined;
+}
+
+export function parseMode(text: string): "yolo" | "surgical" | undefined {
+  const lc = text.toLowerCase();
+  if (/\byolo\b|open|first[- ]?come|instantly|anyone/.test(lc)) return "yolo";
+  if (/surgical|review|apply|application|curated|hand[- ]?pick|select/.test(lc)) return "surgical";
+  return undefined;
+}
+
 // Weighted settlement across participants. Returns per-creator ledger lines with 7% fee.
 export type SettleInput = {
   poolEur: number;
