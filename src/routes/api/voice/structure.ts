@@ -19,8 +19,8 @@ export const Route = createFileRoute("/api/voice/structure")({
         } catch {
           return Response.json({ error: "Expected multipart/form-data" }, { status: 400 });
         }
-        const audio = form.get("audio");
-        if (!(audio instanceof File) && !(audio instanceof Blob)) {
+        const audio = form.get("audio") as unknown as Blob | File | null;
+        if (!audio || typeof (audio as Blob).arrayBuffer !== "function") {
           return Response.json({ error: "Missing 'audio' file" }, { status: 400 });
         }
         const size = (audio as Blob).size;
@@ -33,8 +33,8 @@ export const Route = createFileRoute("/api/voice/structure")({
 
         // Forward to ElevenLabs STT
         const upstream = new FormData();
-        const filename = audio instanceof File && audio.name ? audio.name : "recording.wav";
-        upstream.append("file", audio, filename);
+        const filename = (audio as File).name || "recording.wav";
+        upstream.append("file", audio as Blob, filename);
         upstream.append("model_id", process.env.ELEVENLABS_STT_MODEL || "scribe_v1");
         upstream.append("tag_audio_events", "false");
         upstream.append("diarize", "false");
