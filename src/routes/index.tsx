@@ -33,12 +33,12 @@ const marketCreators = [
 ];
 
 const voices = [
-  { id: 25810873, tag: "SKINCARE", lift: "+38%" },
-  { id: 27409697, tag: "PET", lift: "+22%" },
+  { id: 8294854, tag: "SKINCARE", lift: "+38%" },
+  { id: 20524458, tag: "PET", lift: "+22%" },
   { id: 15647620, tag: "APPAREL", lift: "+61%" },
-  { id: 8294855, tag: "BEVERAGE", lift: "+29%" },
-  { id: 15676271, tag: "FASHION", lift: "+44%" },
-  { id: 38285050, tag: "WELLNESS", lift: "+31%" },
+  { id: 13929184, tag: "BEVERAGE", lift: "+29%" },
+  { id: 30805103, tag: "HOME & DIY", lift: "+44%" },
+  { id: 35035634, tag: "FITNESS", lift: "+31%" },
 ];
 
 const testimonials = [
