@@ -1190,6 +1190,12 @@
 }
 .nc-scout-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; }
 .nc-scout-ghost { font-size: 13px; }
+.nc-attach-list { list-style: none; margin: 8px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.nc-attach-list li { display: flex; align-items: center; gap: 10px; padding: 8px 12px; background: rgba(17,17,17,0.04); border: 1px solid var(--nc-line); border-radius: 10px; font-size: 13px; }
+.nc-attach-list li > span:first-child { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.nc-attach-size { color: rgba(17,17,17,0.55); font-family: 'IBM Plex Mono', monospace; font-size: 12px; }
+.nc-attach-remove { background: transparent; border: none; font-size: 18px; line-height: 1; color: rgba(17,17,17,0.55); cursor: pointer; padding: 0 4px; }
+.nc-attach-remove:hover { color: var(--nc-accent); }
 .nc-agent-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem; }
 .nc-agent-head h2 { margin: 0.25rem 0 0; font-family: "Instrument Serif", serif; font-size: 1.75rem; }
 .nc-agent-progress { display: flex; gap: 4px; }
