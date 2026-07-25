@@ -33,32 +33,32 @@ const marketCreators = [
 ];
 
 const voices = [
-  { id: 25810873, tag: "SKINCARE", lift: "+38%" },
-  { id: 27409697, tag: "PET", lift: "+22%" },
+  { id: 8294854, tag: "SKINCARE", lift: "+38%" },
+  { id: 20524458, tag: "PET", lift: "+22%" },
   { id: 15647620, tag: "APPAREL", lift: "+61%" },
-  { id: 8294855, tag: "BEVERAGE", lift: "+29%" },
-  { id: 15676271, tag: "FASHION", lift: "+44%" },
-  { id: 38285050, tag: "WELLNESS", lift: "+31%" },
+  { id: 13929184, tag: "BEVERAGE", lift: "+29%" },
+  { id: 30805103, tag: "HOME & DIY", lift: "+44%" },
+  { id: 35035634, tag: "FITNESS", lift: "+31%" },
 ];
 
 const testimonials = [
   {
     id: 30805103,
     q: "We stopped negotiating rates one creator at a time. A single pool, one formula, and the payout literally follows the traffic.",
-    name: "Maya Chen",
-    role: "Growth, Skincare DTC · 2 pools live",
+    name: "Devon P.",
+    role: "Growth Lead, Magic Spoon (US · Cereal DTC)",
   },
   {
-    id: 15676271,
+    id: 35035634,
     q: "As a creator, I actually see the math. Baseline for showing up, and a real cut of the pool when my post moves.",
-    name: "Camila R.",
-    role: "Creator · 184K on IG",
+    name: "Kai T.",
+    role: "Creator · Fitness · 104K on IG",
   },
   {
     id: 38285050,
     q: "First campaign we ran through No Cap, our top applicant wasn't the biggest name — she was the one with the highest CTR, and she got paid for it.",
-    name: "Priya S.",
-    role: "Founder, Home & Kitchen brand",
+    name: "Aria K.",
+    role: "Founder, BlissClub (India · Activewear DTC)",
   },
 ];
 
@@ -154,9 +154,9 @@ function Index() {
 
         <section className="nc-logos-strip">
           <div className="nc-wrap">
-            <div className="nc-logos-label">Trusted by DTC product brands running UGC through influencers</div>
+            <div className="nc-logos-label">Trusted by DTC product brands across the US, Germany &amp; India</div>
             <div className="nc-logos-row">
-              {["GLOWCRAFT", "NORTHRUN", "petpost.", "Kindred&Co", "SODAPOP", "MERIDIAN", "BLOOMLAB", "wildhaus"].map((b) => (
+              {["Magic Spoon", "Quince", "Lovevery", "KoRo", "Purelei", "PrepMyMeal", "BlissClub", "Snitch", "The Pant Project"].map((b) => (
                 <span key={b} className="nc-logo-mark">{b}</span>
               ))}
             </div>
@@ -165,17 +165,17 @@ function Index() {
 
         <section className="nc-pullquote">
           <div className="nc-wrap">
-            <div className="nc-pq-brand">● GLOWCRAFT</div>
+            <div className="nc-pq-brand">● MAGIC SPOON</div>
             <blockquote>
               &ldquo;UGC through influencers worked — but the math never did.
               One pool, one formula, and the payout literally follows the traffic.
               That&rsquo;s how we found No Cap.&rdquo;
             </blockquote>
             <div className="nc-pq-who">
-              <img src={px(15676271, 160)} alt="Rani Patel" loading="lazy" />
+              <img src={px(30805103, 160)} alt="Jordan Weiss" loading="lazy" />
               <div>
-                <div className="n">Rani Patel</div>
-                <div className="r">Head of Growth, Glowcraft (Skincare DTC)</div>
+                <div className="n">Jordan Weiss</div>
+                <div className="r">Head of Growth, Magic Spoon (US · Cereal DTC)</div>
               </div>
             </div>
           </div>
@@ -185,8 +185,8 @@ function Index() {
           <div className="nc-wrap">
             <div className="nc-section-head">
               <span className="nc-eyebrow">From a product goal to a live UGC pool — in one prompt</span>
-              <h2>Tell the Influencer Agent what you&rsquo;re shipping. It drafts the pool.</h2>
-              <p>Pick a goal, describe the drop, and No Cap proposes the pool size, baseline, tracked metric, and creator shortlist — you approve before it goes live.</p>
+              <h2>Tell the Scout agent what you&rsquo;re shipping. It drafts the pool.</h2>
+              <p>Scout is the brand-side agent. Describe the drop and it proposes the pool size, baseline, tracked metric, and creator shortlist — on the creator side, the Manager agent handles applications, deadlines, and payouts. You approve before anything goes live.</p>
             </div>
             <div className="nc-prompt-tabs">
               {prompts.map((pr, i) => (
@@ -245,7 +245,7 @@ function Index() {
             <div className="nc-feature-two">
               <div className="nc-ft-card">
                 <h3>Keep UGC campaigns moving without the manual work</h3>
-                <p>The Influencer Agent surfaces what needs attention in one action center: pending applicants, missed content deadlines, follow-ups. You approve, it moves.</p>
+                <p>Scout (brand side) and Manager (influencer side) surface what needs attention in one action center: pending applicants, missed content deadlines, follow-ups. You approve, they move.</p>
                 <div className="nc-ft-mock">
                   <div className="nc-ft-row"><b>Q2 Skincare Drop</b><span className="dot">● Action needed</span></div>
                   <div className="nc-ft-note">21 applied creators · Estimated spend $8.4K (30% under pool cap)</div>
@@ -261,9 +261,9 @@ function Index() {
                 <h3>Fast, compliant payouts — no matter how many creators</h3>
                 <p>Onboard once and pay every accepted creator through the No Cap wallet. Baseline settles on post, performance share settles when the tracking window closes.</p>
                 <div className="nc-ft-mock stack">
-                  <div className="nc-ft-name">@sagebotanicals <img src={px(38285050, 120)} alt="" /></div>
-                  <div className="nc-ft-name">@marakeeps <img src={px(15676271, 120)} alt="" /></div>
-                  <div className="nc-ft-name">@reallytina <img src={px(8294854, 120)} alt="" /></div>
+                <div className="nc-ft-name">@sagebotanicals <img src={px(38285050, 120)} alt="" /></div>
+                <div className="nc-ft-name">@noah.builds <img src={px(30805103, 120)} alt="" /></div>
+                <div className="nc-ft-name">@kai.trains <img src={px(35035634, 120)} alt="" /></div>
                   <div className="nc-ft-wallet">
                     <div><span>23 creators to pay</span><b>$34,550</b></div>
                     <div className="nc-ft-actions">
@@ -574,7 +574,7 @@ function Index() {
             </div>
             <div className="nc-faq">
               {[
-                { q: "Who sets the baseline payout?", a: "Our Influencer Agent sets it for you — benchmarked against current market rates, the creator's geography, and their content category. You approve the number before the pool goes live, so there's no per-creator haggling and every accepted creator sees the same floor on the brief." },
+                { q: "Who sets the baseline payout?", a: "Our Scout agent (brand side) sets it for you — benchmarked against current market rates, the creator's geography, and their content category. You approve the number before the pool goes live, so there's no per-creator haggling and every accepted creator sees the same floor on the brief." },
                 { q: "What counts as a 'result' in the split?", a: "You pick the metric when you fund the pool: tracked clicks, attributed conversions, or verified views. Whatever you pick, it's published on the campaign brief so every creator sees the same rule." },
                 { q: "Can a creator earn zero above baseline?", a: "Yes — if their post drives no tracked activity, they still keep the baseline but earn nothing from the performance pool. The upside is uncapped in the other direction." },
                 { q: "How is this different from other influencer platforms?", a: "Other platforms are directories — they hand you a list of creators and leave the negotiation, rate cards, and payout math to you. No Cap replaces that with one funded pool, one published formula, and one settlement: brands cap total spend up front, creators apply into a rule they can see, and the split follows tracked performance. Variable-cost by design, not by spreadsheet." },

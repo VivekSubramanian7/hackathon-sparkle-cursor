@@ -45,7 +45,7 @@ function HowItWorks() {
       <PageFaq
         title="How the flow actually works"
         items={[
-          { q: "Who sets the baseline payout?", a: "Our Influencer Agent proposes it for you — benchmarked against market rates, the creator's geography, and their content category — and you approve before the pool goes live. Every accepted creator sees the same floor on the brief, so there's no per-creator negotiation." },
+          { q: "Who sets the baseline payout?", a: "Our Scout agent (brand side) proposes it for you — benchmarked against market rates, the creator's geography, and their content category — and you approve before the pool goes live. On the creator side, the Manager agent handles applications and payouts. Every accepted creator sees the same floor on the brief, so there's no per-creator negotiation." },
           { q: "What counts as a 'result' in the split?", a: "You pick the metric when you fund the pool: tracked clicks, attributed conversions, or verified views. It's published on the brief so every creator sees the same rule." },
           { q: "When does the pool actually settle?", a: "Baseline pays on post. The performance share settles when the tracking window closes, using verified pixels, UTM parameters, and platform APIs." },
           { q: "Can I cap how many creators join?", a: "Yes — set a creator cap when you fund the pool. Applications beyond the cap are waitlisted; the split formula stays the same." },
