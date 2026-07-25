@@ -1179,3 +1179,11 @@
 .nc-agent-cta span { display: block; font-size: 0.85rem; color: rgba(0,0,0,0.6); }
 
 .nc-agent-review { margin-top: 0.5rem; }
+
+.nc-switch-voice {
+  display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+  padding: 0.5rem 0.75rem; margin-bottom: 0.75rem;
+  border: 1px dashed rgba(0,0,0,0.12); border-radius: 10px;
+  background: #FBFBF6;
+  font-size: 0.85rem; color: rgba(0,0,0,0.65);
+}
