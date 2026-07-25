@@ -2,6 +2,8 @@ import { Link, useNavigate } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { useAuth } from "@/hooks/use-auth";
 import { supabase } from "@/integrations/supabase/client";
+import { useDemoStore } from "@/lib/demo-store";
+import { toast } from "sonner";
 
 function Wordmark() {
   return (
@@ -20,6 +22,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
         <SiteNav />
         {children}
         <SiteFooter />
+        <DemoBar />
       </div>
     </div>
   );
@@ -56,6 +59,7 @@ export function SiteNav() {
                 <Link to="/how-it-works"><b>How it works</b><span>The pool → split → payout flow</span></Link>
                 <Link to="/pricing"><b>Pricing</b><span>Take rate on the funded pool</span></Link>
                 <Link to="/brand/create"><b>Create a campaign</b><span>Speak your brief, fund the pool</span></Link>
+                <Link to="/brand/campaigns"><b>Your campaigns</b><span>HQ: advance, simulate, settle</span></Link>
               </div>
             </div>
             <div className="nc-group">
@@ -65,6 +69,8 @@ export function SiteNav() {
               <div className="nc-group-menu">
                 <Link to="/creators"><b>Creator marketplace</b><span>Real people, one published formula</span></Link>
                 <Link to="/campaigns"><b>Open campaigns</b><span>Browse briefs and apply in one tap</span></Link>
+                <Link to="/creator/active"><b>Active missions</b><span>Your mission kit + tracking codes</span></Link>
+                <Link to="/creator/payouts"><b>Payouts</b><span>Gross, 7% fee, net</span></Link>
                 <Link to="/start"><b>Get started</b><span>Baseline + a share sized to results</span></Link>
               </div>
             </div>
