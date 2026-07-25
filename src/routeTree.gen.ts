@@ -20,6 +20,8 @@ import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as CreatorsRouteImport } from './routes/creators'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CampaignsIndexRouteImport } from './routes/campaigns.index'
+import { Route as CampaignsIdRouteImport } from './routes/campaigns.$id'
 import { Route as BrandCreateRouteImport } from './routes/brand.create'
 import { Route as ApiVoiceTtsRouteImport } from './routes/api/voice/tts'
 import { Route as ApiVoiceStructureRouteImport } from './routes/api/voice/structure'
@@ -79,6 +81,16 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CampaignsIndexRoute = CampaignsIndexRouteImport.update({
+  id: '/campaigns/',
+  path: '/campaigns/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CampaignsIdRoute = CampaignsIdRouteImport.update({
+  id: '/campaigns/$id',
+  path: '/campaigns/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const BrandCreateRoute = BrandCreateRouteImport.update({
   id: '/brand/create',
   path: '/brand/create',
@@ -108,6 +120,8 @@ export interface FileRoutesByFullPath {
   '/terms': typeof TermsRoute
   '/thesis': typeof ThesisRoute
   '/brand/create': typeof BrandCreateRoute
+  '/campaigns/$id': typeof CampaignsIdRoute
+  '/campaigns/': typeof CampaignsIndexRoute
   '/api/voice/structure': typeof ApiVoiceStructureRoute
   '/api/voice/tts': typeof ApiVoiceTtsRoute
 }
@@ -124,6 +138,8 @@ export interface FileRoutesByTo {
   '/terms': typeof TermsRoute
   '/thesis': typeof ThesisRoute
   '/brand/create': typeof BrandCreateRoute
+  '/campaigns/$id': typeof CampaignsIdRoute
+  '/campaigns': typeof CampaignsIndexRoute
   '/api/voice/structure': typeof ApiVoiceStructureRoute
   '/api/voice/tts': typeof ApiVoiceTtsRoute
 }
@@ -141,6 +157,8 @@ export interface FileRoutesById {
   '/terms': typeof TermsRoute
   '/thesis': typeof ThesisRoute
   '/brand/create': typeof BrandCreateRoute
+  '/campaigns/$id': typeof CampaignsIdRoute
+  '/campaigns/': typeof CampaignsIndexRoute
   '/api/voice/structure': typeof ApiVoiceStructureRoute
   '/api/voice/tts': typeof ApiVoiceTtsRoute
 }
@@ -159,6 +177,8 @@ export interface FileRouteTypes {
     | '/terms'
     | '/thesis'
     | '/brand/create'
+    | '/campaigns/$id'
+    | '/campaigns/'
     | '/api/voice/structure'
     | '/api/voice/tts'
   fileRoutesByTo: FileRoutesByTo
@@ -175,6 +195,8 @@ export interface FileRouteTypes {
     | '/terms'
     | '/thesis'
     | '/brand/create'
+    | '/campaigns/$id'
+    | '/campaigns'
     | '/api/voice/structure'
     | '/api/voice/tts'
   id:
@@ -191,6 +213,8 @@ export interface FileRouteTypes {
     | '/terms'
     | '/thesis'
     | '/brand/create'
+    | '/campaigns/$id'
+    | '/campaigns/'
     | '/api/voice/structure'
     | '/api/voice/tts'
   fileRoutesById: FileRoutesById
@@ -208,6 +232,8 @@ export interface RootRouteChildren {
   TermsRoute: typeof TermsRoute
   ThesisRoute: typeof ThesisRoute
   BrandCreateRoute: typeof BrandCreateRoute
+  CampaignsIdRoute: typeof CampaignsIdRoute
+  CampaignsIndexRoute: typeof CampaignsIndexRoute
   ApiVoiceStructureRoute: typeof ApiVoiceStructureRoute
   ApiVoiceTtsRoute: typeof ApiVoiceTtsRoute
 }
@@ -291,6 +317,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/campaigns/': {
+      id: '/campaigns/'
+      path: '/campaigns'
+      fullPath: '/campaigns/'
+      preLoaderRoute: typeof CampaignsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/campaigns/$id': {
+      id: '/campaigns/$id'
+      path: '/campaigns/$id'
+      fullPath: '/campaigns/$id'
+      preLoaderRoute: typeof CampaignsIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/brand/create': {
       id: '/brand/create'
       path: '/brand/create'
@@ -328,6 +368,8 @@ const rootRouteChildren: RootRouteChildren = {
   TermsRoute: TermsRoute,
   ThesisRoute: ThesisRoute,
   BrandCreateRoute: BrandCreateRoute,
+  CampaignsIdRoute: CampaignsIdRoute,
+  CampaignsIndexRoute: CampaignsIndexRoute,
   ApiVoiceStructureRoute: ApiVoiceStructureRoute,
   ApiVoiceTtsRoute: ApiVoiceTtsRoute,
 }
