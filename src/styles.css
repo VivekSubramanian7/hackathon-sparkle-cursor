@@ -400,10 +400,23 @@
   transition: transform .18s ease, box-shadow .18s ease, background .2s ease, border-color .2s ease;
   font-family: inherit;
 }
+.nc-btn-primary, .nc-btn-ghost {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 12px 22px; border-radius: 999px;
+  font-weight: 500; font-size: 14.5px; line-height: 1;
+  border: 1px solid transparent; cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease, background .2s ease, border-color .2s ease, color .2s ease;
+  font-family: inherit; text-decoration: none; white-space: nowrap;
+}
 .nc-btn-primary { background: var(--nc-accent); color: #ffffff; border-color: var(--nc-accent); }
 .nc-btn-primary:hover { background: var(--nc-accent-2); border-color: var(--nc-accent-2); transform: translateY(-1px); box-shadow: 0 14px 32px -8px rgba(255, 95, 31, 0.5); }
-.nc-btn-ghost { background: rgba(17, 17, 17, 0.05); color: var(--nc-cream); border-color: var(--nc-line-strong); }
-.nc-btn-ghost:hover { background: rgba(17, 17, 17, 0.08); border-color: var(--nc-cream); transform: translateY(-1px); }
+.nc-btn-primary:disabled { opacity: 0.55; cursor: not-allowed; transform: none; box-shadow: none; }
+.nc-btn-ghost { background: transparent; color: var(--nc-ink); border-color: var(--nc-line-strong); }
+.nc-btn-ghost:hover { background: rgba(17, 17, 17, 0.06); border-color: var(--nc-ink); transform: translateY(-1px); }
+.nc-btn-ghost:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+/* Ghost buttons placed on dark surfaces (voice card) flip to light ink */
+.nc-voice-card .nc-btn-ghost { color: rgba(255,255,255,0.9); border-color: rgba(255,255,255,0.25); background: rgba(255,255,255,0.04); }
+.nc-voice-card .nc-btn-ghost:hover { background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.55); color: #fff; }
 
 /* ============ Brand create wizard ============ */
 .nc-create { padding: 96px 24px 120px; max-width: 960px; margin: 0 auto; }
