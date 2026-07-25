@@ -463,40 +463,13 @@ function Index() {
             <div className="nc-cta-banner">
               <h2>Set a budget. Open it up. Let the results decide the split.</h2>
               <div className="nc-cta-row">
-                <a className="nc-btn nc-btn-primary" href="#">Start a campaign</a>
-                <a className="nc-btn nc-btn-ghost" href="#">Talk to us</a>
+                <Link className="nc-btn nc-btn-primary" to="/start">Start a campaign</Link>
+                <Link className="nc-btn nc-btn-ghost" to="/contact">Talk to us</Link>
               </div>
             </div>
           </div>
         </section>
-
-        <footer className="nc-footer">
-          <div className="nc-wrap nc-footer-grid">
-            <div className="nc-footer-brand">
-              <div className="nc-logo"><span className="dot" />No Cap</div>
-              <p>No lying about the split — pooled, performance-based influencer budgets for DTC brands.</p>
-            </div>
-            <div className="nc-footer-cols">
-              <div className="nc-footer-col">
-                <h5>Product</h5>
-                <a href="#how">How it works</a>
-                <a href="#try">Try the split</a>
-                <a href="#compare">Why pooled</a>
-              </div>
-              <div className="nc-footer-col">
-                <h5>Company</h5>
-                <a href="#">Contact</a>
-                <a href="#">Privacy</a>
-                <a href="#">Terms</a>
-              </div>
-            </div>
-          </div>
-          <div className="nc-wrap nc-footer-bottom">
-            <span>© No Cap, 2026.</span>
-            <span>Mockup landing page — figures and creator handles shown are illustrative, not real customer data.</span>
-          </div>
-        </footer>
-      </div>
-    </div>
+      </>
+    </SiteShell>
   );
 }
