@@ -4,7 +4,6 @@ import { Waveform } from "@/components/waveform";
 import { useRecorder } from "@/hooks/use-recorder";
 import {
   parseAmount,
-  parseCpa,
   parseMode,
   parseWeight,
 } from "@/domain/structure";
