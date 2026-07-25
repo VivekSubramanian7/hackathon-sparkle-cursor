@@ -299,14 +299,23 @@ function Index() {
                 </p>
               </div>
               <div className="nc-market-filter">
-                {["All", "Skincare", "Fitness", "Home", "Food", "Pet"].map((c, i) => (
-                  <span key={c} className={`chip${i === 0 ? " on" : ""}`}>{c}</span>
+                {CATEGORIES.map((c) => (
+                  <button
+                    key={c}
+                    type="button"
+                    onClick={() => setMarketCat(c)}
+                    className={`chip${marketCat === c ? " on" : ""}`}
+                  >
+                    {c}
+                  </button>
                 ))}
               </div>
             </div>
 
             <div className="nc-market-grid">
-              {marketCreators.map((c) => (
+              {marketCreators
+                .filter((c) => marketCat === "All" || c.cat === marketCat)
+                .map((c) => (
                 <div key={c.id} className="nc-creator-card">
                   <span className="nc-creator-tag">
                     {c.tag === "TOP 5%" ? <span className="g">● {c.tag}</span> : c.tag}
