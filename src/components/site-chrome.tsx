@@ -1,5 +1,7 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useNavigate } from "@tanstack/react-router";
 import type { ReactNode } from "react";
+import { useAuth } from "@/hooks/use-auth";
+import { supabase } from "@/integrations/supabase/client";
 
 function Wordmark() {
   return (
@@ -24,6 +26,19 @@ export function SiteShell({ children }: { children: ReactNode }) {
 }
 
 export function SiteNav() {
+  const { user, loading } = useAuth();
+  const navigate = useNavigate();
+
+  async function handleSignOut() {
+    await supabase.auth.signOut();
+    navigate({ to: "/" });
+  }
+
+  const meta = (user?.user_metadata ?? {}) as { role?: string; ugc_handle?: string; ugc_platform?: string };
+  const displayName = meta.ugc_handle && meta.ugc_handle !== "brand" ? `@${meta.ugc_handle}` : (user?.email ?? "");
+  const initial = (displayName || user?.email || "?").replace(/^@/, "").charAt(0).toUpperCase();
+  const roleLabel = meta.role === "brand" ? "Brand" : meta.role === "creator" ? "Creator" : "Account";
+
   return (
     <nav className="nc-nav">
       <div className="nc-nav-inner">
@@ -55,6 +70,23 @@ export function SiteNav() {
           </div>
         </div>
         <div className="nc-navright">
+          {loading ? null : user ? (
+            <div className="nc-group nc-login-group">
+              <button type="button" className="nc-group-trigger nc-user-trigger">
+                <span className="nc-user-avatar" aria-hidden="true">{initial}</span>
+                <span className="nc-user-name">{displayName}</span>
+                <span className="nc-caret">▾</span>
+              </button>
+              <div className="nc-group-menu nc-login-menu">
+                <div className="nc-login-label">{roleLabel.toUpperCase()}</div>
+                <div className="nc-user-email">{user.email}</div>
+                <button type="button" className="nc-menu-btn" onClick={handleSignOut}>
+                  <b>Sign out</b>
+                </button>
+              </div>
+            </div>
+          ) : (
+          <>
           <div className="nc-group nc-login-group">
             <button type="button" className="nc-group-trigger nc-login-trigger">
               Login <span className="nc-caret">▾</span>
@@ -72,6 +104,8 @@ export function SiteNav() {
             </div>
           </div>
           <Link className="nc-btn nc-btn-primary" to="/signup">Get access →</Link>
+          </>
+          )}
         </div>
       </div>
     </nav>
