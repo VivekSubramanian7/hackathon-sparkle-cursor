@@ -19,8 +19,7 @@ export function SiteNav() {
     <nav className="nc-nav">
       <div className="nc-nav-inner">
         <Link to="/" className="nc-logo">
-          <span className="dot" />
-          No Cap
+          <Wordmark />
         </Link>
         <div className="nc-navlinks">
           <Link to="/how-it-works">How it works</Link>
@@ -42,7 +41,7 @@ export function SiteFooter() {
     <footer className="nc-footer">
       <div className="nc-wrap nc-footer-grid">
         <div className="nc-footer-brand">
-          <Link to="/" className="nc-logo"><span className="dot" />No Cap</Link>
+          <Link to="/" className="nc-logo"><Wordmark /></Link>
           <p>No lying about the split — pooled, performance-based influencer budgets for DTC brands.</p>
         </div>
         <div className="nc-footer-cols">
