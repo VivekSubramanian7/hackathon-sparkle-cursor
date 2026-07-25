@@ -119,7 +119,6 @@ export function VoiceAgent({
   })();
   const [idx, setIdx] = useState(firstUnanswered);
   const [data, setData] = useState<VoiceAgentResult>(seeded);
-  const [turns, setTurns] = useState<Turn[]>([]);
   const [speaking, setSpeaking] = useState(false);
   const [thinking, setThinking] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -131,7 +130,6 @@ export function VoiceAgent({
 
   const speak = useCallback(
     async (text: string) => {
-      setTurns((t) => [...t, { role: "scout", text }]);
       if (muted) return;
       try {
         setSpeaking(true);
@@ -198,7 +196,6 @@ export function VoiceAgent({
         toast.error("Didn't catch that - try again");
         return;
       }
-      setTurns((t) => [...t, { role: "you", text: transcript }]);
       const patch = q.parse(transcript, data);
       if (!patch) {
         void speak("Hmm, I didn't quite get that. Could you say it again?");
@@ -214,7 +211,6 @@ export function VoiceAgent({
   }
 
   function skipQuestion() {
-    setTurns((t) => [...t, { role: "you", text: "(skipped, using default)" }]);
     setIdx((i) => i + 1);
   }
 
