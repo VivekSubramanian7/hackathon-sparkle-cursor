@@ -5,7 +5,7 @@ import { PageHero, SiteShell } from "@/components/site-chrome";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Talk to us about a pool campaign | No Cap" },
+      { title: "Contact - Talk to us about a pool campaign | No Cap" },
       { name: "description", content: "Questions about the split, baselines, tracked metrics, or running a pool in your category? Reach the No Cap team and we'll walk you through it." },
       { property: "og:title", content: "Contact No Cap" },
       { property: "og:description", content: "Talk to us about running a performance-split influencer pool." },
@@ -28,7 +28,7 @@ function ContactPage() {
             </div>
             <div><label>Message</label><textarea required /></div>
             <button type="submit" className="nc-btn nc-btn-primary" style={{ justifySelf: "center" }}>
-              {sent ? "Sent — talk soon" : "Send message"}
+              {sent ? "Sent - talk soon" : "Send message"}
             </button>
           </form>
         </div>

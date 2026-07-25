@@ -65,7 +65,7 @@ const testimonials = [
   },
   {
     id: 38285050,
-    q: "First campaign we ran through No Cap, our top applicant wasn't the biggest name — she was the one with the highest CTR, and she got paid for it.",
+    q: "First campaign we ran through No Cap, our top applicant wasn't the biggest name - she was the one with the highest CTR, and she got paid for it.",
     name: "Aria K.",
     role: "Founder, BlissClub (India · Activewear DTC)",
   },
@@ -78,7 +78,7 @@ function Index() {
   const [promptTab, setPromptTab] = useState(0);
   const [marketCat, setMarketCat] = useState<Category>("All");
   const prompts = [
-    { t: "Launch a product drop", p: "Fund a $12K UGC pool for our new vitamin C serum — 25 skincare creators, split by tracked add-to-carts." },
+    { t: "Launch a product drop", p: "Fund a $12K UGC pool for our new vitamin C serum - 25 skincare creators, split by tracked add-to-carts." },
     { t: "Push a bestseller", p: "Reignite our top SKU with 40 TikTok creators, baseline $150, pool splits on verified 3s views + swipe-ups." },
     { t: "Test a new segment", p: "Open a $6K pool to pet-parent creators for the new chew-toy line, split by attributed conversions." },
   ];
@@ -110,7 +110,7 @@ function Index() {
             <p className="lead">
               No Cap turns influencer spend from a fixed cost you commit on faith into a
               variable cost tied to outcomes. Fund one pool, open applications, pay every
-              accepted creator a guaranteed baseline — then split the rest by tracked results.
+              accepted creator a guaranteed baseline - then split the rest by tracked results.
             </p>
             <div className="nc-cta-row">
               <Link className="nc-btn nc-btn-primary" to="/start">Start a campaign</Link>
@@ -120,14 +120,14 @@ function Index() {
 
           <div className="nc-hero-visual">
             <div className="nc-floating-chip nc-fc-1">
-              <span className="nc-fc-dot" />@sagebotanicals posted — payout updated
+              <span className="nc-fc-dot" />@sagebotanicals posted - payout updated
             </div>
             <div className="nc-floating-chip nc-fc-2">
               <span className="nc-fc-dot" />Payout sent · $612
             </div>
             <div className="nc-app-card">
               <div className="nc-app-head">
-                <div className="nc-app-title">🧴 Skincare Drop — Pool Campaign</div>
+                <div className="nc-app-title">🧴 Skincare Drop - Pool Campaign</div>
                 <span className="nc-status-live">LIVE</span>
               </div>
               <div className="nc-app-meta">
@@ -138,7 +138,7 @@ function Index() {
               {[
                 { c: "#8fe3c8", i: "SB", h: "@sagebotanicals", m: "118K followers · Skincare", s: "Posted", p: "$612", cls: "nc-chip-posted" },
                 { c: "#f6c66a", i: "MK", h: "@marakeeps", m: "64K followers · Wellness", s: "Posted", p: "$438", cls: "nc-chip-posted" },
-                { c: "#ff8a72", i: "RT", h: "@reallytina", m: "29K followers · Beauty", s: "Applied", p: "—", cls: "nc-chip-applied" },
+                { c: "#ff8a72", i: "RT", h: "@reallytina", m: "29K followers · Beauty", s: "Applied", p: "-", cls: "nc-chip-applied" },
               ].map((r) => (
                 <div key={r.i} className="nc-app-row">
                   <div className="nc-avatar" style={{ background: r.c }}>{r.i}</div>
@@ -177,7 +177,7 @@ function Index() {
           <div className="nc-wrap">
             <div className="nc-pq-brand">● MAGIC SPOON</div>
             <blockquote>
-              &ldquo;UGC through influencers worked — but the math never did.
+              &ldquo;UGC through influencers worked - but the math never did.
               One pool, one formula, and the payout literally follows the traffic.
               That&rsquo;s how we found No Cap.&rdquo;
             </blockquote>
@@ -194,9 +194,9 @@ function Index() {
         <section className="nc-section">
           <div className="nc-wrap">
             <div className="nc-section-head">
-              <span className="nc-eyebrow">From a product goal to a live UGC pool — in one prompt</span>
+              <span className="nc-eyebrow">From a product goal to a live UGC pool - in one prompt</span>
               <h2>Tell the Scout agent what you&rsquo;re shipping. It drafts the pool.</h2>
-              <p>Scout is the brand-side agent. Describe the drop and it proposes the pool size, baseline, tracked metric, and creator shortlist — on the creator side, the Manager agent handles applications, deadlines, and payouts. You approve before anything goes live.</p>
+              <p>Scout is the brand-side agent. Describe the drop and it proposes the pool size, baseline, tracked metric, and creator shortlist - on the creator side, the Manager agent handles applications, deadlines, and payouts. You approve before anything goes live.</p>
             </div>
             <div className="nc-prompt-tabs">
               {prompts.map((pr, i) => (
@@ -230,7 +230,7 @@ function Index() {
           <div className="nc-wrap">
             <div className="nc-section-head">
               <span className="nc-eyebrow">Work with creators who actually respond</span>
-              <h2>Generic creator databases flood you with cold profiles. Our pool applicants opt in — they&rsquo;re already interested in your category.</h2>
+              <h2>Generic creator databases flood you with cold profiles. Our pool applicants opt in - they&rsquo;re already interested in your category.</h2>
             </div>
             <div className="nc-respond-stats">
               <div><div className="n">8×</div><div className="l">Applicant response rates</div><div className="s">vs. cold DM outreach</div></div>
@@ -241,11 +241,11 @@ function Index() {
               <span className="nc-orbit-arc a2" />
               <span className="nc-orbit-arc a3" />
               <div className="bubble b1"><img src={px(35035634, 140)} alt="" /><span>Count me in</span></div>
-              <div className="bubble b2"><img src={px(38285050, 140)} alt="" /><span>Love this — I&rsquo;m in!</span></div>
+              <div className="bubble b2"><img src={px(38285050, 140)} alt="" /><span>Love this - I&rsquo;m in!</span></div>
               <div className="bubble b3"><img src={px(15676271, 140)} alt="" /><span>Applying now</span></div>
               <div className="bubble b4"><img src={px(30805103, 140)} alt="" /><span>This looks great</span></div>
               <div className="bubble b5"><img src={px(8294854, 140)} alt="" /><span>I&rsquo;m interested!</span></div>
-              <div className="brief">We&rsquo;d love UGC from you for our vitamin C serum drop — TikTok + Reels. Open a pool?</div>
+              <div className="brief">We&rsquo;d love UGC from you for our vitamin C serum drop - TikTok + Reels. Open a pool?</div>
             </div>
           </div>
         </section>
@@ -260,7 +260,7 @@ function Index() {
                   <div className="nc-ft-row"><b>Q2 Skincare Drop</b><span className="dot">● Action needed</span></div>
                   <div className="nc-ft-note">21 applied creators · Estimated spend $8.4K (30% under pool cap)</div>
                   <div className="nc-ft-inner">
-                    <div className="q">4 creators missed their draft deadline — what next?</div>
+                    <div className="q">4 creators missed their draft deadline - what next?</div>
                     <div className="opt"><span>A</span><b>Send a reminder to overdue creators</b></div>
                     <div className="opt"><span>B</span><b>Extend the deadline by 5 days</b></div>
                     <div className="opt muted"><span>C</span>Ask the agent to do something else…</div>
@@ -268,7 +268,7 @@ function Index() {
                 </div>
               </div>
               <div className="nc-ft-card">
-                <h3>Fast, compliant payouts — no matter how many creators</h3>
+                <h3>Fast, compliant payouts - no matter how many creators</h3>
                 <p>Onboard once and pay every accepted creator through the No Cap wallet. Baseline settles on post, performance share settles when the tracking window closes.</p>
                 <div className="nc-ft-mock stack">
                 <div className="nc-ft-name">@sagebotanicals <img src={px(38285050, 120)} alt="" /></div>
@@ -295,7 +295,7 @@ function Index() {
                 <h2>Real people. Same formula for every one of them.</h2>
                 <p>
                   Browse creators already opted into pool campaigns. Everyone you see is paid off
-                  the same published split — baseline plus a share of the pool sized to real
+                  the same published split - baseline plus a share of the pool sized to real
                   tracked results.
                 </p>
               </div>
@@ -321,7 +321,7 @@ function Index() {
                   <span className="nc-creator-tag">
                     {c.tag === "TOP 5%" ? <span className="g">● {c.tag}</span> : c.tag}
                   </span>
-                  <img className="nc-creator-photo" src={px(c.id, 600)} alt={`${c.name} — creator`} loading="lazy" />
+                  <img className="nc-creator-photo" src={px(c.id, 600)} alt={`${c.name} - creator`} loading="lazy" />
                   <div className="nc-creator-body">
                     <h4>{c.name}</h4>
                     <div className="meta">{c.handle} · {c.followers}</div>
@@ -345,7 +345,7 @@ function Index() {
 
             <div className="nc-feature-row">
               <div className="nc-feature-text">
-                <span className="nc-stepnum">01 — FUND</span>
+                <span className="nc-stepnum">01 - FUND</span>
                 <h3>Fund the pool</h3>
                 <p>Set a total budget for the campaign and a baseline payout every accepted creator earns just for posting, win or lose on performance.</p>
               </div>
@@ -360,7 +360,7 @@ function Index() {
 
             <div className="nc-feature-row reverse">
               <div className="nc-feature-text">
-                <span className="nc-stepnum">02 — APPLY</span>
+                <span className="nc-stepnum">02 - APPLY</span>
                 <h3>Creators apply &amp; post</h3>
                 <p>Open the campaign to your own list or a public brief. Approve who fits, they post on their own channel and timeline.</p>
               </div>
@@ -382,7 +382,7 @@ function Index() {
 
             <div className="nc-feature-row">
               <div className="nc-feature-text">
-                <span className="nc-stepnum">03 — SPLIT</span>
+                <span className="nc-stepnum">03 - SPLIT</span>
                 <h3>Pool splits by results</h3>
                 <p>Once content is live, everything above baseline divides across creators in proportion to their tracked clicks, views, or conversions.</p>
               </div>
@@ -409,7 +409,7 @@ function Index() {
             <div className="nc-section-head">
               <span className="nc-eyebrow">Results, not resumes</span>
               <h2>The pool follows the post that actually moves.</h2>
-              <p>An illustration of the mechanic: each tile is a category and the relative lift the winning post drove. The split rebalances the moment new performance data lands — bigger movers claim a bigger share of the same pool.</p>
+              <p>An illustration of the mechanic: each tile is a category and the relative lift the winning post drove. The split rebalances the moment new performance data lands - bigger movers claim a bigger share of the same pool.</p>
             </div>
             <div className="nc-voices">
               {voices.map((v, i) => (
@@ -446,7 +446,7 @@ function Index() {
             <div className="nc-splitter-shell">
               <div className="nc-section-head">
                 <span className="nc-eyebrow">Try it yourself</span>
-                <h2>No cap — every creator sees the same formula</h2>
+                <h2>No cap - every creator sees the same formula</h2>
                 <p>No hidden negotiation, no side deals. Drag a creator's performance up or down and watch the pool rebalance in real time.</p>
               </div>
 
@@ -488,7 +488,7 @@ function Index() {
 
                 {over && (
                   <div className="nc-warn">
-                    Baseline total exceeds budget — reduce baseline or raise the pool.
+                    Baseline total exceeds budget - reduce baseline or raise the pool.
                   </div>
                 )}
 
@@ -593,11 +593,11 @@ function Index() {
             </div>
             <div className="nc-faq">
               {[
-                { q: "Who sets the baseline payout?", a: "Our Scout agent (brand side) sets it for you — benchmarked against current market rates, the creator's geography, and their content category. You approve the number before the pool goes live, so there's no per-creator haggling and every accepted creator sees the same floor on the brief." },
+                { q: "Who sets the baseline payout?", a: "Our Scout agent (brand side) sets it for you - benchmarked against current market rates, the creator's geography, and their content category. You approve the number before the pool goes live, so there's no per-creator haggling and every accepted creator sees the same floor on the brief." },
                 { q: "What counts as a 'result' in the split?", a: "You pick the metric when you fund the pool: tracked clicks, attributed conversions, or verified views. Whatever you pick, it's published on the campaign brief so every creator sees the same rule." },
-                { q: "Can a creator earn zero above baseline?", a: "Yes — if their post drives no tracked activity, they still keep the baseline but earn nothing from the performance pool. The upside is uncapped in the other direction." },
-                { q: "How is this different from other influencer platforms?", a: "Other platforms are directories — they hand you a list of creators and leave the negotiation, rate cards, and payout math to you. No Cap replaces that with one funded pool, one published formula, and one settlement: brands cap total spend up front, creators apply into a rule they can see, and the split follows tracked performance. Variable-cost by design, not by spreadsheet." },
-                { q: "Do I have to use your creator marketplace?", a: "No. You can open a pool to your own creator list, to a public brief, or to marketplace applicants — the split formula is the same either way." },
+                { q: "Can a creator earn zero above baseline?", a: "Yes - if their post drives no tracked activity, they still keep the baseline but earn nothing from the performance pool. The upside is uncapped in the other direction." },
+                { q: "How is this different from other influencer platforms?", a: "Other platforms are directories - they hand you a list of creators and leave the negotiation, rate cards, and payout math to you. No Cap replaces that with one funded pool, one published formula, and one settlement: brands cap total spend up front, creators apply into a rule they can see, and the split follows tracked performance. Variable-cost by design, not by spreadsheet." },
+                { q: "Do I have to use your creator marketplace?", a: "No. You can open a pool to your own creator list, to a public brief, or to marketplace applicants - the split formula is the same either way." },
               ].map((f) => (
                 <details key={f.q}>
                   <summary>{f.q}</summary>
@@ -616,14 +616,14 @@ function Index() {
               <p>
                 E-commerce is compounding, creator spend is scaling faster than e-commerce itself,
                 and the software layer underneath influencer budgets is finally catching up. The
-                money is already moving — the mechanism hasn't.
+                money is already moving - the mechanism hasn't.
               </p>
             </div>
             <div className="nc-thesis-grid">
               <div className="nc-thesis-card">
                 <span className="k">E-commerce</span>
                 <div className="n">$80.5T</div>
-                <p>Global e-commerce is projected to grow from $17.1T (2022) to $80.5T by 2030 — a 26.5% CAGR of commerce moving online.</p>
+                <p>Global e-commerce is projected to grow from $17.1T (2022) to $80.5T by 2030 - a 26.5% CAGR of commerce moving online.</p>
                 <span className="src">Source: Adroit Market Research</span>
               </div>
               <div className="nc-thesis-card">
@@ -635,7 +635,7 @@ function Index() {
               <div className="nc-thesis-card">
                 <span className="k">Influencer tooling</span>
                 <div className="n">$97.6B</div>
-                <p>The software brands use to run and measure creator campaigns grows ~4× — from $25.4B (2024) to $97.6B by 2030. Budget is shifting to structured tools.</p>
+                <p>The software brands use to run and measure creator campaigns grows ~4× - from $25.4B (2024) to $97.6B by 2030. Budget is shifting to structured tools.</p>
                 <span className="src">Source: Grand View Research</span>
               </div>
             </div>

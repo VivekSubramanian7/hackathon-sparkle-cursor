@@ -4,9 +4,9 @@ import { PageFaq, PageHero, SiteShell } from "@/components/site-chrome";
 export const Route = createFileRoute("/thesis")({
   head: () => ({
     meta: [
-      { title: "Thesis — Why influencer spend has to go variable | No Cap" },
+      { title: "Thesis - Why influencer spend has to go variable | No Cap" },
       { name: "description", content: "A $203B creator economy still runs on flat fees and manual negotiations. Pooled, performance-split payouts turn fixed influencer costs into variable ones tied to tracked outcomes." },
-      { property: "og:title", content: "The No Cap thesis — variable-cost influencer spend" },
+      { property: "og:title", content: "The No Cap thesis - variable-cost influencer spend" },
       { property: "og:description", content: "Why performance-split pools replace flat fees and per-creator affiliate rates for DTC brands." },
     ],
   }),
@@ -27,7 +27,7 @@ function ThesisPage() {
           <h2>Three curves, one buyer.</h2>
           <p>
             <strong>E-commerce is still compounding.</strong> Adroit Market Research puts the global
-            e-commerce market at $17.1T in 2022, projected to reach $80.5T by 2030 — a 26.5% CAGR.
+            e-commerce market at $17.1T in 2022, projected to reach $80.5T by 2030 - a 26.5% CAGR.
             Read directionally: more commerce is moving online, and more brands need a way to
             acquire customers there.
           </p>
@@ -39,7 +39,7 @@ function ThesisPage() {
           </p>
           <p>
             <strong>The tooling underneath hasn't caught up.</strong> The software layer that helps
-            brands run and measure influencer campaigns — $25.4B in 2024 — is projected to reach
+            brands run and measure influencer campaigns - $25.4B in 2024 - is projected to reach
             $97.6B by 2030. Brands are already spending on creators, but they're doing it through
             spreadsheets and DMs.
           </p>
@@ -48,7 +48,7 @@ function ThesisPage() {
           <h2>The money moved. The mechanics didn't.</h2>
           <ul>
             <li>Brands negotiate a flat fee with each creator individually, before they've seen a single piece of content.</li>
-            <li>There's no way to pay based on what a post actually drives — a creator with a bad-fit audience gets paid the same as one who converts.</li>
+            <li>There's no way to pay based on what a post actually drives - a creator with a bad-fit audience gets paid the same as one who converts.</li>
             <li>Campaign management lives in spreadsheets and DMs, with no shared system for applications, tracking, or payout.</li>
           </ul>
           <p>
@@ -61,14 +61,14 @@ function ThesisPage() {
           <h2>Replace individually-negotiated fees with a funded, performance-split pool.</h2>
           <p>
             A brand funds a campaign pool and sets a baseline payout every accepted creator earns
-            just for posting — removing the negotiation step entirely. Creators apply into the
+            just for posting - removing the negotiation step entirely. Creators apply into the
             campaign rather than being individually courted. Once content is live, the remaining
             pool splits across creators by tracked performance, so the brand is paying in
             proportion to what actually worked rather than what was promised upfront.
           </p>
           <p>
             This turns influencer spend from a <strong>fixed cost</strong> brands commit to on faith
-            into a <strong>variable cost tied to outcomes</strong> — which matters directly to the
+            into a <strong>variable cost tied to outcomes</strong> - which matters directly to the
             DTC buyer, whose whole operating logic is performance-based acquisition (paid social,
             affiliate, email) rather than brand-style guaranteed placements.
           </p>
@@ -77,7 +77,7 @@ function ThesisPage() {
           <h2>Budget is already flowing. It just wants structure.</h2>
           <ul>
             <li>Creator economy growth (to $848B by 2032) means more budget is flowing to creators than ever, and DTC marketers are actively looking for the same performance rigor they apply to every other acquisition channel.</li>
-            <li>The influencer-tooling market itself is scaling 4× by 2030 — brands are already budgeting for software here. This isn't a category to create from scratch, it needs a better mechanism inside it.</li>
+            <li>The influencer-tooling market itself is scaling 4× by 2030 - brands are already budgeting for software here. This isn't a category to create from scratch, it needs a better mechanism inside it.</li>
             <li>Rising e-commerce volume expands the addressable base of campaign-running DTC brands scaling spend across acquisition channels.</li>
           </ul>
 
@@ -92,10 +92,10 @@ function ThesisPage() {
       <PageFaq
         title="Questions on the thesis"
         items={[
-          { q: "How is this different from other influencer platforms?", a: "Other platforms are directories — you get a list of creators, then you're back to per-creator rate cards, DMs, and spreadsheet reconciliation. No Cap collapses that into one funded pool with one published formula: baseline benchmarked by our Scout agent (brand side), Manager agent (influencer side) running applications and payouts, performance share settled against a tracked metric, total spend capped up front. It's the transaction layer other platforms leave to you." },
-          { q: "Why does variable-cost matter to DTC?", a: "DTC's whole operating logic is performance-based acquisition — paid social, affiliate, email. Flat influencer fees are the last fixed-cost channel. Pools bring influencer spend onto the same variable-cost footing." },
-          { q: "What signal decides the split?", a: "Brand-chosen per campaign — tracked clicks, attributed conversions, or verified views — and published on the brief so every creator sees the same rule. Bounded pool + published metric limits any single creator's ability to inflate the total." },
-          { q: "Why now vs. two years ago?", a: "Creator budgets scale to $848B by 2032 and the tooling market 4×'s by 2030. Brands are already budgeting for structured tools here — the missing piece is the payment mechanism underneath." },
+          { q: "How is this different from other influencer platforms?", a: "Other platforms are directories - you get a list of creators, then you're back to per-creator rate cards, DMs, and spreadsheet reconciliation. No Cap collapses that into one funded pool with one published formula: baseline benchmarked by our Scout agent (brand side), Manager agent (influencer side) running applications and payouts, performance share settled against a tracked metric, total spend capped up front. It's the transaction layer other platforms leave to you." },
+          { q: "Why does variable-cost matter to DTC?", a: "DTC's whole operating logic is performance-based acquisition - paid social, affiliate, email. Flat influencer fees are the last fixed-cost channel. Pools bring influencer spend onto the same variable-cost footing." },
+          { q: "What signal decides the split?", a: "Brand-chosen per campaign - tracked clicks, attributed conversions, or verified views - and published on the brief so every creator sees the same rule. Bounded pool + published metric limits any single creator's ability to inflate the total." },
+          { q: "Why now vs. two years ago?", a: "Creator budgets scale to $848B by 2032 and the tooling market 4×'s by 2030. Brands are already budgeting for structured tools here - the missing piece is the payment mechanism underneath." },
         ]}
       />
     </SiteShell>

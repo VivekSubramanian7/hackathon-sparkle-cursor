@@ -13,10 +13,10 @@ export const Route = createFileRoute("/login")({
   }),
   head: () => ({
     meta: [
-      { title: "Log in or sign up — Creators & brands | No Cap" },
+      { title: "Log in or sign up - Creators & brands | No Cap" },
       { name: "description", content: "Sign in or create your No Cap account. Creators post to one video UGC platform; brands fund pools and open applications." },
       { property: "og:title", content: "Log in or sign up to No Cap" },
-      { property: "og:description", content: "Creators and brands — one pool, one formula, one payout." },
+      { property: "og:description", content: "Creators and brands - one pool, one formula, one payout." },
     ],
   }),
   component: LoginPage,
@@ -60,7 +60,7 @@ function LoginPage() {
         if (error) throw error;
         const { data: sess } = await supabase.auth.getSession();
         if (sess.session) {
-          setOk("Account created — you're signed in.");
+          setOk("Account created - you're signed in.");
           setTimeout(() => navigate({ to: "/" }), 700);
         } else {
           setOk("Check your email to confirm your account.");

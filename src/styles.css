@@ -1014,7 +1014,7 @@
 .nc-ft-actions { display: flex; gap: 8px; flex-wrap: wrap; }
 .nc-btn.sm { padding: 8px 14px; font-size: 13px; }
 
-/* Auth split layout — passionfroot-style */
+/* Auth split layout - passionfroot-style */
 .nc-auth-split { display: grid; grid-template-columns: 1.05fr 1fr; gap: 0; border: 1px solid rgba(17,17,17,.08); border-radius: 24px; overflow: hidden; background: #fff; box-shadow: 0 20px 60px -30px rgba(17,17,17,.15); }
 @media (max-width: 900px) { .nc-auth-split { grid-template-columns: 1fr; } }
 .nc-auth-aside { padding: 40px; display: flex; flex-direction: column; justify-content: space-between; gap: 32px; min-height: 520px; position: relative; overflow: hidden; }
