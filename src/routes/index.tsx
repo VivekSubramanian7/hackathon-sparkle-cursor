@@ -104,8 +104,8 @@ function Index() {
           <div className="nc-wrap nc-inner">
             <span className="nc-eyebrow">For DTC brands running influencer campaigns</span>
             <h1>
-              Set the budget.<br />
-              Let <span className="hl">results</span> split it.
+              Don't waste money on ads.<br />
+              Let <span className="hl">influencers</span> sell for you.
             </h1>
             <p className="lead">
               No Cap turns influencer spend from a fixed cost you commit on faith into a
