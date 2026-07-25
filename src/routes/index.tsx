@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
+import { SiteShell } from "@/components/site-chrome";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -20,14 +22,14 @@ const px = (id: number, w = 600) =>
   `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}`;
 
 const marketCreators = [
-  { id: 15676271, name: "Camila R.", handle: "@camila.streetstyle", cats: "Fashion · Beauty", followers: "184K", rate: "from $420", tag: "TOP 5%" },
-  { id: 30805103, name: "Noah W.", handle: "@noah.builds", cats: "Home · DIY", followers: "62K", rate: "from $210", tag: "NEW" },
-  { id: 38285050, name: "Aria K.", handle: "@aria.everyday", cats: "Lifestyle · Wellness", followers: "241K", rate: "from $540", tag: "TOP 5%" },
-  { id: 13929184, name: "Devon P.", handle: "@devon.pours", cats: "Food & Beverage", followers: "88K", rate: "from $280", tag: "OPEN" },
-  { id: 8294854, name: "Sana M.", handle: "@sanaskin", cats: "Skincare", followers: "156K", rate: "from $380", tag: "TOP 5%" },
-  { id: 35035634, name: "Kai T.", handle: "@kai.trains", cats: "Fitness · Supplements", followers: "104K", rate: "from $320", tag: "OPEN" },
-  { id: 24454074, name: "Mila V.", handle: "@milavero", cats: "Apparel · Style", followers: "73K", rate: "from $260", tag: "NEW" },
-  { id: 20524458, name: "Ren S.", handle: "@renshoots", cats: "Pet · Lifestyle", followers: "51K", rate: "from $180", tag: "OPEN" },
+  { id: 15676271, name: "Camila R.", handle: "@camila.streetstyle", cats: "Fashion · Beauty", followers: "184K", tag: "TOP 5%" },
+  { id: 30805103, name: "Noah W.", handle: "@noah.builds", cats: "Home · DIY", followers: "62K", tag: "NEW" },
+  { id: 38285050, name: "Aria K.", handle: "@aria.everyday", cats: "Lifestyle · Wellness", followers: "241K", tag: "TOP 5%" },
+  { id: 13929184, name: "Devon P.", handle: "@devon.pours", cats: "Food & Beverage", followers: "88K", tag: "OPEN" },
+  { id: 8294854, name: "Sana M.", handle: "@sanaskin", cats: "Skincare", followers: "156K", tag: "TOP 5%" },
+  { id: 35035634, name: "Kai T.", handle: "@kai.trains", cats: "Fitness · Supplements", followers: "104K", tag: "OPEN" },
+  { id: 24454074, name: "Mila V.", handle: "@milavero", cats: "Apparel · Style", followers: "73K", tag: "NEW" },
+  { id: 20524458, name: "Ren S.", handle: "@renshoots", cats: "Pet · Lifestyle", followers: "51K", tag: "OPEN" },
 ];
 
 const voices = [
@@ -80,28 +82,8 @@ function Index() {
   }, [budget, baseline, creators]);
 
   return (
-    <div className="nc-root">
-      <div className="nc-stars" aria-hidden="true" />
-      <div className="nc-content">
-        <nav className="nc-nav">
-          <div className="nc-nav-inner">
-            <div className="nc-logo">
-              <span className="dot" />
-              No Cap
-            </div>
-            <div className="nc-navlinks">
-              <a href="#how">How it works</a>
-              <a href="#try">Try the split</a>
-              <a href="#compare">Why pooled</a>
-              <a href="#fit">Who it's for</a>
-            </div>
-            <div className="nc-navright">
-              <a className="nc-login" href="#">Login</a>
-              <a className="nc-btn nc-btn-primary" href="#get-started">Start for free</a>
-            </div>
-          </div>
-        </nav>
-
+    <SiteShell>
+      <>
         <header className="nc-hero">
           <div className="nc-wrap nc-inner">
             <span className="nc-eyebrow">For DTC brands running influencer campaigns</span>
@@ -110,12 +92,12 @@ function Index() {
               Let <span className="hl">results</span> split it.
             </h1>
             <p className="lead">
-              Fund one campaign pool, open it to creators, and pay every accepted creator a
-              guaranteed baseline — plus a share of the pool sized to what their content
-              actually drives. No cap, that's the whole formula.
+              No Cap turns influencer spend from a fixed cost you commit on faith into a
+              variable cost tied to outcomes. Fund one pool, open applications, pay every
+              accepted creator a guaranteed baseline — then split the rest by tracked results.
             </p>
             <div className="nc-cta-row">
-              <a className="nc-btn nc-btn-primary" href="#get-started">Start a campaign</a>
+              <Link className="nc-btn nc-btn-primary" to="/start">Start a campaign</Link>
               <a className="nc-btn nc-btn-ghost" href="#try">Try the live split</a>
             </div>
           </div>
@@ -195,7 +177,6 @@ function Index() {
                     <div className="meta">{c.handle} · {c.followers}</div>
                     <div className="row">
                       <span className="cats">{c.cats}</span>
-                      <span className="rate">{c.rate}</span>
                     </div>
                   </div>
                 </div>
@@ -477,45 +458,55 @@ function Index() {
           </div>
         </section>
 
+        <section id="thesis" className="nc-section nc-panel-bg">
+          <div className="nc-wrap">
+            <div className="nc-section-head">
+              <span className="nc-eyebrow">Why now</span>
+              <h2>Three curves are converging on the same DTC dollar.</h2>
+              <p>
+                E-commerce is compounding, creator spend is scaling faster than e-commerce itself,
+                and the software layer underneath influencer budgets is finally catching up. The
+                money is already moving — the mechanism hasn't.
+              </p>
+            </div>
+            <div className="nc-thesis-grid">
+              <div className="nc-thesis-card">
+                <span className="k">E-commerce</span>
+                <div className="n">$80.5T</div>
+                <p>Global e-commerce is projected to grow from $17.1T (2022) to $80.5T by 2030 — a 26.5% CAGR of commerce moving online.</p>
+                <span className="src">Source: Adroit Market Research</span>
+              </div>
+              <div className="nc-thesis-card">
+                <span className="k">Creator economy</span>
+                <div className="n">$848B</div>
+                <p>Creator spend scales from $203B in 2025 to $848B by 2032. Creators are now a primary DTC acquisition channel, not a side experiment.</p>
+                <span className="src">Source: Forbes / INGENIUS Studio</span>
+              </div>
+              <div className="nc-thesis-card">
+                <span className="k">Influencer tooling</span>
+                <div className="n">$97.6B</div>
+                <p>The software brands use to run and measure creator campaigns grows ~4× — from $25.4B (2024) to $97.6B by 2030. Budget is shifting to structured tools.</p>
+                <span className="src">Source: Grand View Research</span>
+              </div>
+            </div>
+            <p className="nc-form-note" style={{ marginTop: 28 }}>
+              <Link to="/thesis" className="nc-login">Read the full No Cap thesis →</Link>
+            </p>
+          </div>
+        </section>
+
         <section id="get-started" className="nc-section">
           <div className="nc-wrap">
             <div className="nc-cta-banner">
               <h2>Set a budget. Open it up. Let the results decide the split.</h2>
               <div className="nc-cta-row">
-                <a className="nc-btn nc-btn-primary" href="#">Start a campaign</a>
-                <a className="nc-btn nc-btn-ghost" href="#">Talk to us</a>
+                <Link className="nc-btn nc-btn-primary" to="/start">Start a campaign</Link>
+                <Link className="nc-btn nc-btn-ghost" to="/contact">Talk to us</Link>
               </div>
             </div>
           </div>
         </section>
-
-        <footer className="nc-footer">
-          <div className="nc-wrap nc-footer-grid">
-            <div className="nc-footer-brand">
-              <div className="nc-logo"><span className="dot" />No Cap</div>
-              <p>No lying about the split — pooled, performance-based influencer budgets for DTC brands.</p>
-            </div>
-            <div className="nc-footer-cols">
-              <div className="nc-footer-col">
-                <h5>Product</h5>
-                <a href="#how">How it works</a>
-                <a href="#try">Try the split</a>
-                <a href="#compare">Why pooled</a>
-              </div>
-              <div className="nc-footer-col">
-                <h5>Company</h5>
-                <a href="#">Contact</a>
-                <a href="#">Privacy</a>
-                <a href="#">Terms</a>
-              </div>
-            </div>
-          </div>
-          <div className="nc-wrap nc-footer-bottom">
-            <span>© No Cap, 2026.</span>
-            <span>Mockup landing page — figures and creator handles shown are illustrative, not real customer data.</span>
-          </div>
-        </footer>
-      </div>
-    </div>
+      </>
+    </SiteShell>
   );
 }
