@@ -319,8 +319,8 @@
   transition: transform .18s ease, box-shadow .18s ease, background .2s ease, border-color .2s ease;
   font-family: inherit;
 }
-.nc-btn-primary { background: var(--nc-cream); color: var(--nc-ink); }
-.nc-btn-primary:hover { transform: translateY(-1px); box-shadow: 0 14px 32px -8px rgba(255, 95, 31, 0.5); }
+.nc-btn-primary { background: var(--nc-accent); color: #ffffff; border-color: var(--nc-accent); }
+.nc-btn-primary:hover { background: var(--nc-accent-2); border-color: var(--nc-accent-2); transform: translateY(-1px); box-shadow: 0 14px 32px -8px rgba(255, 95, 31, 0.5); }
 .nc-btn-ghost { background: rgba(17, 17, 17, 0.05); color: var(--nc-cream); border-color: var(--nc-line-strong); }
 .nc-btn-ghost:hover { background: rgba(17, 17, 17, 0.08); border-color: var(--nc-cream); transform: translateY(-1px); }
 
