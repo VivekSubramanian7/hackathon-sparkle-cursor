@@ -62,6 +62,26 @@ function CreateWizard() {
     setStep(4);
   }
 
+  function absorbAgent(r: VoiceAgentResult) {
+    // Preserve any partial answers when the user leaves voice for the form.
+    if (r.title) setTitle(r.title);
+    if (r.brandName) setBrandName(r.brandName);
+    if (r.brief) setBrief(r.brief);
+    if (r.guidelines) setGuidelines(r.guidelines);
+    if (r.poolEur) setPoolEur(r.poolEur);
+    if (r.targetCpa) setTargetCpa(r.targetCpa);
+    if (typeof r.signupWeight === "number") setSignupWeight(r.signupWeight);
+    if (r.mode) setMode(r.mode);
+  }
+
+  function currentAsAgent(): VoiceAgentResult {
+    return { title, brandName, brief, guidelines, poolEur, targetCpa, signupWeight, mode };
+  }
+
+  function openAgent() {
+    setAgentOpen(true);
+  }
+
   function applyDraft(d: CampaignDraft) {
     if (d.title && !title) setTitle(d.title);
     setBrief(d.brief || "");
@@ -133,7 +153,16 @@ function CreateWizard() {
 
       <section className="nc-wizard-body">
         {agentOpen ? (
-          <VoiceAgent onDone={applyAgent} onCancel={() => setAgentOpen(false)} />
+          <VoiceAgent
+            initial={currentAsAgent()}
+            onDone={applyAgent}
+            onCancel={(current) => {
+              absorbAgent(current);
+              setAgentOpen(false);
+              // Land on the typed form so the user sees their data preserved.
+              if (step === 0) setStep(1);
+            }}
+          />
         ) : (
           <>
         {step === 0 && (
@@ -145,12 +174,13 @@ function CreateWizard() {
             }}
             onSkip={() => setStep(1)}
             onSample={fillSample}
-            onTalkToScout={() => setAgentOpen(true)}
+            onTalkToScout={openAgent}
           />
         )}
 
         {step === 1 && (
           <div className="nc-form">
+            <SwitchToVoice onClick={openAgent} />
             {transcript && (
               <p className="nc-transcript">
                 <span>Heard:</span> "{transcript.slice(0, 220)}{transcript.length > 220 ? "..." : ""}"
@@ -178,6 +208,7 @@ function CreateWizard() {
 
         {step === 2 && (
           <div className="nc-form">
+            <SwitchToVoice onClick={openAgent} />
             <div className="nc-econ-grid">
               <label>
                 Pool (EUR)
@@ -218,6 +249,7 @@ function CreateWizard() {
 
         {step === 3 && (
           <div className="nc-form">
+            <SwitchToVoice onClick={openAgent} />
             <div className="nc-mode-grid">
               <button type="button" className={`nc-mode-card ${mode === "yolo" ? "is-active" : ""}`} onClick={() => setMode("yolo")}>
                 <b>Yolo</b>
@@ -234,6 +266,7 @@ function CreateWizard() {
 
         {step === 4 && (
           <div className="nc-form nc-pay">
+            <SwitchToVoice onClick={openAgent} />
             <h2>Fund escrow</h2>
             <dl className="nc-summary">
               <div><dt>Pool</dt><dd>€{poolEur.toLocaleString()}</dd></div>
@@ -264,6 +297,17 @@ function WizardNav({ onBack, onNext, canNext }: { onBack: () => void; onNext: ()
     <div className="nc-actions">
       <button className="nc-btn-ghost" onClick={onBack}>Back</button>
       <button className="nc-btn-primary" onClick={onNext} disabled={!canNext}>Continue</button>
+    </div>
+  );
+}
+
+function SwitchToVoice({ onClick }: { onClick: () => void }) {
+  return (
+    <div className="nc-switch-voice">
+      <span>Prefer to talk it through?</span>
+      <button type="button" className="nc-btn-ghost" onClick={onClick}>
+        Continue with Scout (voice)
+      </button>
     </div>
   );
 }
