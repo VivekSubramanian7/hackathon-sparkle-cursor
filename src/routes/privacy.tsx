@@ -25,7 +25,7 @@ function PrivacyPage() {
           <h3>Retention</h3>
           <p>Campaign data is retained for the life of your account plus 12 months for tax and payout audit purposes. You can request deletion at any time by contacting support.</p>
           <h3>Contact</h3>
-          <p>Privacy questions: privacy@nocap.example. This is a mockup page for a hackathon prototype; treat as illustrative.</p>
+          <p>Privacy questions: privacy@nocap.ink.</p>
         </div>
       </section>
     </SiteShell>

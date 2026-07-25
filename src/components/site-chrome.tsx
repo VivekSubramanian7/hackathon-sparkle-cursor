@@ -104,7 +104,7 @@ export function SiteFooter() {
       </div>
       <div className="nc-wrap nc-footer-bottom">
         <span>© No Cap, 2026.</span>
-        <span>Mockup landing page — figures and creator handles shown are illustrative, not real customer data.</span>
+        <span>No lying about the split.</span>
       </div>
     </footer>
   );
