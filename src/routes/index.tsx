@@ -16,6 +16,50 @@ const initialCreators: Creator[] = [
 
 const fmt = (n: number) => "$" + Math.round(n).toLocaleString("en-US");
 
+const px = (id: number, w = 600) =>
+  `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}`;
+
+const marketCreators = [
+  { id: 15676271, name: "Camila R.", handle: "@camila.streetstyle", cats: "Fashion · Beauty", followers: "184K", rate: "from $420", tag: "TOP 5%" },
+  { id: 30805103, name: "Noah W.", handle: "@noah.builds", cats: "Home · DIY", followers: "62K", rate: "from $210", tag: "NEW" },
+  { id: 38285050, name: "Aria K.", handle: "@aria.everyday", cats: "Lifestyle · Wellness", followers: "241K", rate: "from $540", tag: "TOP 5%" },
+  { id: 13929184, name: "Devon P.", handle: "@devon.pours", cats: "Food & Beverage", followers: "88K", rate: "from $280", tag: "OPEN" },
+  { id: 8294854, name: "Sana M.", handle: "@sanaskin", cats: "Skincare", followers: "156K", rate: "from $380", tag: "TOP 5%" },
+  { id: 35035634, name: "Kai T.", handle: "@kai.trains", cats: "Fitness · Supplements", followers: "104K", rate: "from $320", tag: "OPEN" },
+  { id: 24454074, name: "Mila V.", handle: "@milavero", cats: "Apparel · Style", followers: "73K", rate: "from $260", tag: "NEW" },
+  { id: 20524458, name: "Ren S.", handle: "@renshoots", cats: "Pet · Lifestyle", followers: "51K", rate: "from $180", tag: "OPEN" },
+];
+
+const voices = [
+  { id: 25810873, tag: "SKINCARE", lift: "+38%" },
+  { id: 27409697, tag: "PET", lift: "+22%" },
+  { id: 15647620, tag: "APPAREL", lift: "+61%" },
+  { id: 8294855, tag: "BEVERAGE", lift: "+29%" },
+  { id: 15676271, tag: "FASHION", lift: "+44%" },
+  { id: 38285050, tag: "WELLNESS", lift: "+31%" },
+];
+
+const testimonials = [
+  {
+    id: 30805103,
+    q: "We stopped negotiating rates one creator at a time. A single pool, one formula, and the payout literally follows the traffic.",
+    name: "Maya Chen",
+    role: "Growth, Skincare DTC · 2 pools live",
+  },
+  {
+    id: 15676271,
+    q: "As a creator, I actually see the math. Baseline for showing up, and a real cut of the pool when my post moves.",
+    name: "Camila R.",
+    role: "Creator · 184K on IG",
+  },
+  {
+    id: 38285050,
+    q: "First campaign we ran through No Cap, our top applicant wasn't the biggest name — she was the one with the highest CTR, and she got paid for it.",
+    name: "Priya S.",
+    role: "Founder, Home & Kitchen brand",
+  },
+];
+
 function Index() {
   const [budget, setBudget] = useState(10000);
   const [baseline, setBaseline] = useState(200);
@@ -120,6 +164,46 @@ function Index() {
           </div>
         </section>
 
+        <section id="creators" className="nc-section">
+          <div className="nc-wrap">
+            <div className="nc-market-head">
+              <div className="left">
+                <span className="nc-eyebrow">Creator marketplace</span>
+                <h2>Real people. Same formula for every one of them.</h2>
+                <p>
+                  Browse creators already opted into pool campaigns. Everyone you see is paid off
+                  the same published split — baseline plus a share of the pool sized to real
+                  tracked results.
+                </p>
+              </div>
+              <div className="nc-market-filter">
+                {["All", "Skincare", "Fitness", "Home", "Food", "Pet"].map((c, i) => (
+                  <span key={c} className={`chip${i === 0 ? " on" : ""}`}>{c}</span>
+                ))}
+              </div>
+            </div>
+
+            <div className="nc-market-grid">
+              {marketCreators.map((c) => (
+                <div key={c.id} className="nc-creator-card">
+                  <span className="nc-creator-tag">
+                    {c.tag === "TOP 5%" ? <span className="g">● {c.tag}</span> : c.tag}
+                  </span>
+                  <img className="nc-creator-photo" src={px(c.id, 600)} alt={`${c.name} — creator`} loading="lazy" />
+                  <div className="nc-creator-body">
+                    <h4>{c.name}</h4>
+                    <div className="meta">{c.handle} · {c.followers}</div>
+                    <div className="row">
+                      <span className="cats">{c.cats}</span>
+                      <span className="rate">{c.rate}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section id="how" className="nc-section nc-panel-bg">
           <div className="nc-wrap">
             <div className="nc-section-head">
@@ -189,6 +273,43 @@ function Index() {
           </div>
         </section>
 
+        <section className="nc-section">
+          <div className="nc-wrap">
+            <div className="nc-section-head">
+              <span className="nc-eyebrow">Results, not resumes</span>
+              <h2>The pool follows the post that actually moves.</h2>
+              <p>Every tile below is a real creator's payout tracked against real clicks — the split rebalances the moment new performance data lands.</p>
+            </div>
+            <div className="nc-voices">
+              {voices.map((v, i) => (
+                <div key={i} className="nc-voice">
+                  <img src={px(v.id, 400)} alt="Creator" loading="lazy" />
+                  <div className="lbl"><span>{v.tag}</span><b>{v.lift}</b></div>
+                </div>
+              ))}
+            </div>
+
+            <div className="nc-stats" style={{ marginTop: 48 }}>
+              <div className="nc-stat">
+                <div className="num">0<span className="u">$</span></div>
+                <div className="lbl">Per-creator negotiations</div>
+              </div>
+              <div className="nc-stat">
+                <div className="num">1</div>
+                <div className="lbl">Published formula, no side deals</div>
+              </div>
+              <div className="nc-stat">
+                <div className="num">100<span className="u">%</span></div>
+                <div className="lbl">Baseline paid on every accepted post</div>
+              </div>
+              <div className="nc-stat">
+                <div className="num">∞</div>
+                <div className="lbl">No cap on top-performer upside</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section id="try" className="nc-section">
           <div className="nc-wrap">
             <div className="nc-splitter-shell">
@@ -253,6 +374,29 @@ function Index() {
           </div>
         </section>
 
+        <section className="nc-section nc-panel-bg">
+          <div className="nc-wrap">
+            <div className="nc-section-head">
+              <span className="nc-eyebrow">From both sides of the pool</span>
+              <h2>Brands and creators, running the same math.</h2>
+            </div>
+            <div className="nc-testi-grid">
+              {testimonials.map((t) => (
+                <div key={t.id} className="nc-testi">
+                  <q>{t.q}</q>
+                  <div className="nc-testi-who">
+                    <img src={px(t.id, 200)} alt={t.name} loading="lazy" />
+                    <div>
+                      <div className="n">{t.name}</div>
+                      <div className="r">{t.role}</div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section id="compare" className="nc-section nc-panel-bg">
           <div className="nc-wrap">
             <div className="nc-section-head">
@@ -305,6 +449,29 @@ function Index() {
                   <h4>{f.h}</h4>
                   <p>{f.p}</p>
                 </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="faq" className="nc-section">
+          <div className="nc-wrap">
+            <div className="nc-section-head">
+              <span className="nc-eyebrow">Frequently asked</span>
+              <h2>Everything about the split, in plain English.</h2>
+            </div>
+            <div className="nc-faq">
+              {[
+                { q: "Who sets the baseline payout?", a: "You do, per campaign. Baseline is the guaranteed floor every accepted creator earns for posting — it comes out of the pool before the performance split runs." },
+                { q: "What counts as a 'result' in the split?", a: "You pick the metric when you fund the pool: tracked clicks, attributed conversions, or verified views. Whatever you pick, it's published on the campaign brief so every creator sees the same rule." },
+                { q: "Can a creator earn zero above baseline?", a: "Yes — if their post drives no tracked activity, they still keep the baseline but earn nothing from the performance pool. The upside is uncapped in the other direction." },
+                { q: "How is this different from an affiliate program?", a: "Affiliate is per-creator, per-sale, with rates negotiated one by one. Pool campaigns fix a total budget up front and split what's left of the pool by relative performance — no per-creator rate cards." },
+                { q: "Do I have to use your creator marketplace?", a: "No. You can open a pool to your own creator list, to a public brief, or to marketplace applicants — the split formula is the same either way." },
+              ].map((f) => (
+                <details key={f.q}>
+                  <summary>{f.q}</summary>
+                  <p>{f.a}</p>
+                </details>
               ))}
             </div>
           </div>
