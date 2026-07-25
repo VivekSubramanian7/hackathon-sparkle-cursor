@@ -102,7 +102,7 @@ function CreateWizard() {
       toast.loading("Escrowing pool...", { id: "fund" });
       await fundCampaign(c.id);
       toast.success("Pool funded - campaign is recruiting", { id: "fund" });
-      navigate({ to: "/campaigns/$id", params: { id: c.id } });
+      navigate({ to: "/brand/campaigns/$id", params: { id: c.id } });
     } finally {
       setPaying(false);
     }

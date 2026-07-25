@@ -21,6 +21,7 @@ import { Route as CreatorsRouteImport } from './routes/creators'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CampaignsIndexRouteImport } from './routes/campaigns.index'
+import { Route as CreatorPayoutsRouteImport } from './routes/creator.payouts'
 import { Route as CreatorActiveRouteImport } from './routes/creator.active'
 import { Route as CampaignsIdRouteImport } from './routes/campaigns.$id'
 import { Route as BrandCreateRouteImport } from './routes/brand.create'
@@ -89,6 +90,11 @@ const CampaignsIndexRoute = CampaignsIndexRouteImport.update({
   path: '/campaigns/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CreatorPayoutsRoute = CreatorPayoutsRouteImport.update({
+  id: '/creator/payouts',
+  path: '/creator/payouts',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CreatorActiveRoute = CreatorActiveRouteImport.update({
   id: '/creator/active',
   path: '/creator/active',
@@ -140,6 +146,7 @@ export interface FileRoutesByFullPath {
   '/brand/create': typeof BrandCreateRoute
   '/campaigns/$id': typeof CampaignsIdRoute
   '/creator/active': typeof CreatorActiveRoute
+  '/creator/payouts': typeof CreatorPayoutsRoute
   '/campaigns/': typeof CampaignsIndexRoute
   '/api/voice/structure': typeof ApiVoiceStructureRoute
   '/api/voice/tts': typeof ApiVoiceTtsRoute
@@ -161,6 +168,7 @@ export interface FileRoutesByTo {
   '/brand/create': typeof BrandCreateRoute
   '/campaigns/$id': typeof CampaignsIdRoute
   '/creator/active': typeof CreatorActiveRoute
+  '/creator/payouts': typeof CreatorPayoutsRoute
   '/campaigns': typeof CampaignsIndexRoute
   '/api/voice/structure': typeof ApiVoiceStructureRoute
   '/api/voice/tts': typeof ApiVoiceTtsRoute
@@ -183,6 +191,7 @@ export interface FileRoutesById {
   '/brand/create': typeof BrandCreateRoute
   '/campaigns/$id': typeof CampaignsIdRoute
   '/creator/active': typeof CreatorActiveRoute
+  '/creator/payouts': typeof CreatorPayoutsRoute
   '/campaigns/': typeof CampaignsIndexRoute
   '/api/voice/structure': typeof ApiVoiceStructureRoute
   '/api/voice/tts': typeof ApiVoiceTtsRoute
@@ -206,6 +215,7 @@ export interface FileRouteTypes {
     | '/brand/create'
     | '/campaigns/$id'
     | '/creator/active'
+    | '/creator/payouts'
     | '/campaigns/'
     | '/api/voice/structure'
     | '/api/voice/tts'
@@ -227,6 +237,7 @@ export interface FileRouteTypes {
     | '/brand/create'
     | '/campaigns/$id'
     | '/creator/active'
+    | '/creator/payouts'
     | '/campaigns'
     | '/api/voice/structure'
     | '/api/voice/tts'
@@ -248,6 +259,7 @@ export interface FileRouteTypes {
     | '/brand/create'
     | '/campaigns/$id'
     | '/creator/active'
+    | '/creator/payouts'
     | '/campaigns/'
     | '/api/voice/structure'
     | '/api/voice/tts'
@@ -270,6 +282,7 @@ export interface RootRouteChildren {
   BrandCreateRoute: typeof BrandCreateRoute
   CampaignsIdRoute: typeof CampaignsIdRoute
   CreatorActiveRoute: typeof CreatorActiveRoute
+  CreatorPayoutsRoute: typeof CreatorPayoutsRoute
   CampaignsIndexRoute: typeof CampaignsIndexRoute
   ApiVoiceStructureRoute: typeof ApiVoiceStructureRoute
   ApiVoiceTtsRoute: typeof ApiVoiceTtsRoute
@@ -363,6 +376,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CampaignsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/creator/payouts': {
+      id: '/creator/payouts'
+      path: '/creator/payouts'
+      fullPath: '/creator/payouts'
+      preLoaderRoute: typeof CreatorPayoutsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/creator/active': {
       id: '/creator/active'
       path: '/creator/active'
@@ -430,6 +450,7 @@ const rootRouteChildren: RootRouteChildren = {
   BrandCreateRoute: BrandCreateRoute,
   CampaignsIdRoute: CampaignsIdRoute,
   CreatorActiveRoute: CreatorActiveRoute,
+  CreatorPayoutsRoute: CreatorPayoutsRoute,
   CampaignsIndexRoute: CampaignsIndexRoute,
   ApiVoiceStructureRoute: ApiVoiceStructureRoute,
   ApiVoiceTtsRoute: ApiVoiceTtsRoute,
