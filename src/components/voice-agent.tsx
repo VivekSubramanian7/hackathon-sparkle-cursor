@@ -105,15 +105,31 @@ const QUESTIONS: Question[] = [
 type Turn = { role: "scout" | "you"; text: string };
 
 export function VoiceAgent({
+  initial,
   onDone,
   onCancel,
 }: {
+  initial?: Partial<VoiceAgentResult>;
   onDone: (r: VoiceAgentResult) => void;
-  onCancel: () => void;
+  onCancel: (current: VoiceAgentResult) => void;
 }) {
   const rec = useRecorder();
-  const [idx, setIdx] = useState(0);
-  const [data, setData] = useState<VoiceAgentResult>(DEFAULTS);
+  // Start on the first unanswered field so returning to voice resumes naturally.
+  const seeded: VoiceAgentResult = { ...DEFAULTS, ...(initial ?? {}) };
+  const firstUnanswered = (() => {
+    for (let i = 0; i < QUESTIONS.length; i++) {
+      const f = QUESTIONS[i].field;
+      const v = seeded[f];
+      const empty =
+        (typeof v === "string" && !v.trim()) ||
+        v === DEFAULTS[f] ||
+        v == null;
+      if (empty) return i;
+    }
+    return QUESTIONS.length;
+  })();
+  const [idx, setIdx] = useState(firstUnanswered);
+  const [data, setData] = useState<VoiceAgentResult>(seeded);
   const [turns, setTurns] = useState<Turn[]>([]);
   const [speaking, setSpeaking] = useState(false);
   const [thinking, setThinking] = useState(false);
@@ -278,8 +294,12 @@ export function VoiceAgent({
                 {muted ? "Unmute Scout" : "Mute Scout"}
               </button>
             )}
-            <button className="nc-btn-ghost" onClick={onCancel} disabled={rec.isRecording}>
-              Type instead
+            <button
+              className="nc-btn-ghost"
+              onClick={() => onCancel(data)}
+              disabled={rec.isRecording}
+            >
+              Switch to form (keep answers)
             </button>
           </div>
           {rec.error && <p className="nc-voice-error">{rec.error}</p>}
@@ -297,7 +317,7 @@ export function VoiceAgent({
             setTurns([]);
             setIdx(0);
           }}
-          onCancel={onCancel}
+          onCancel={() => onCancel(data)}
         />
       )}
     </div>
