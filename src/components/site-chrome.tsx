@@ -5,7 +5,7 @@ function Wordmark() {
   return (
     <svg viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg" className="nc-wordmark" aria-label="No Cap" role="img">
       <text x="60" y="205" fontFamily="Instrument Serif, Georgia, serif" fontWeight="400" fontSize="200" fill="currentColor">No Cap</text>
-      <rect x="64" y="235" width="240" height="14" rx="7" fill="#CFFF04" />
+      <rect x="64" y="235" width="240" height="14" rx="7" fill="#FF5F1F" />
     </svg>
   );
 }
