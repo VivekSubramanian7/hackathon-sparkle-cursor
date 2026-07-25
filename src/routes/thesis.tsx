@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { PageHero, SiteShell } from "@/components/site-chrome";
+import { PageFaq, PageHero, SiteShell } from "@/components/site-chrome";
 
 export const Route = createFileRoute("/thesis")({
   head: () => ({
@@ -89,6 +89,15 @@ function ThesisPage() {
           </ul>
         </div>
       </section>
+      <PageFaq
+        title="Questions on the thesis"
+        items={[
+          { q: "Isn't this just an affiliate program?", a: "Affiliate is per-creator, per-sale, with rates negotiated one-by-one. A pool fixes the total budget up front and splits what's left of the pool by relative performance — no per-creator rate cards, capped total spend." },
+          { q: "Why does variable-cost matter to DTC?", a: "DTC's whole operating logic is performance-based acquisition — paid social, affiliate, email. Flat influencer fees are the last fixed-cost channel. Pools bring influencer spend onto the same variable-cost footing." },
+          { q: "What signal decides the split?", a: "Brand-chosen per campaign — tracked clicks, attributed conversions, or verified views — and published on the brief so every creator sees the same rule. Bounded pool + published metric limits any single creator's ability to inflate the total." },
+          { q: "Why now vs. two years ago?", a: "Creator budgets scale to $848B by 2032 and the tooling market 4×'s by 2030. Brands are already budgeting for structured tools here — the missing piece is the payment mechanism underneath." },
+        ]}
+      />
     </SiteShell>
   );
 }

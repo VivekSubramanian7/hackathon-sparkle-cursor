@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { PageHero, SiteShell } from "@/components/site-chrome";
+import { PageFaq, PageHero, SiteShell } from "@/components/site-chrome";
 
 export const Route = createFileRoute("/how-it-works")({
   head: () => ({
@@ -42,6 +42,16 @@ function HowItWorks() {
           </div>
         </div>
       </section>
+      <PageFaq
+        title="How the flow actually works"
+        items={[
+          { q: "Who sets the baseline payout?", a: "You do, per campaign. Baseline is the guaranteed floor every accepted creator earns for posting — it comes out of the pool before the performance split runs." },
+          { q: "What counts as a 'result' in the split?", a: "You pick the metric when you fund the pool: tracked clicks, attributed conversions, or verified views. It's published on the brief so every creator sees the same rule." },
+          { q: "When does the pool actually settle?", a: "Baseline pays on post. The performance share settles when the tracking window closes, using verified pixels, UTM parameters, and platform APIs." },
+          { q: "Can I cap how many creators join?", a: "Yes — set a creator cap when you fund the pool. Applications beyond the cap are waitlisted; the split formula stays the same." },
+          { q: "What if no creator drives results?", a: "Baseline is still paid on every accepted post. The performance pool simply doesn't distribute — you never spend above the funded cap." },
+        ]}
+      />
     </SiteShell>
   );
 }
