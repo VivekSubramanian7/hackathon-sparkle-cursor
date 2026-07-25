@@ -5,10 +5,10 @@ import { PageHero, SiteShell } from "@/components/site-chrome";
 export const Route = createFileRoute("/start")({
   head: () => ({
     meta: [
-      { title: "Start a pool campaign — No Cap" },
-      { name: "description", content: "Tell us about your brand and the pool you want to run. We'll get you live on a performance-split campaign." },
-      { property: "og:title", content: "Start a No Cap pool" },
-      { property: "og:description", content: "Fund a pool. Open applications. Pay by result." },
+      { title: "Start a pool campaign — capped budget, uncapped upside | No Cap" },
+      { name: "description", content: "Set a total budget, pick the split metric, and get creators applying in days. Zero per-creator negotiation, capped total spend, uncapped upside for top performers." },
+      { property: "og:title", content: "Start a No Cap pool — fund it, open it, split by results" },
+      { property: "og:description", content: "Launch a performance-split influencer campaign in one brief. No card required." },
     ],
   }),
   component: StartPage,

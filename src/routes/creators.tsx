@@ -22,10 +22,10 @@ const creators = [
 export const Route = createFileRoute("/creators")({
   head: () => ({
     meta: [
-      { title: "Creator marketplace — No Cap" },
-      { name: "description", content: "Browse creators opted into pool campaigns. Everyone paid off the same published split — baseline plus a share of the pool sized to real tracked results." },
-      { property: "og:title", content: "Creator marketplace — No Cap" },
-      { property: "og:description", content: "One published formula for every creator in the pool." },
+      { title: "Creators — one published split, no per-creator rate cards | No Cap" },
+      { name: "description", content: "Meet creators opted into pool campaigns. Same baseline plus a share of the pool for everyone, sized to the tracked metric on the brief. No individually-negotiated fees." },
+      { property: "og:title", content: "No Cap creators — same formula, sized to real results" },
+      { property: "og:description", content: "Browse creators in the pool. One published split formula for every applicant, every campaign." },
     ],
   }),
   component: CreatorsPage,

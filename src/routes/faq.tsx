@@ -4,10 +4,10 @@ import { PageHero, SiteShell } from "@/components/site-chrome";
 export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
-      { title: "FAQ — No Cap" },
-      { name: "description", content: "Answers on baseline payouts, performance metrics, affiliate comparisons, and how the pool split works." },
-      { property: "og:title", content: "No Cap — FAQ" },
-      { property: "og:description", content: "Everything about the split, in plain English." },
+      { title: "FAQ — Pools, baselines, and the performance split | No Cap" },
+      { name: "description", content: "How the baseline works, what counts as a tracked result, why pools beat flat fees and per-creator affiliate rates, and how the split stays gaming-resistant." },
+      { property: "og:title", content: "No Cap FAQ — how the pool split actually works" },
+      { property: "og:description", content: "Baselines, metrics, affiliate comparisons, and payout math — in plain English." },
     ],
   }),
   component: FaqPage,

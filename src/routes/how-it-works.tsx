@@ -4,10 +4,10 @@ import { PageHero, SiteShell } from "@/components/site-chrome";
 export const Route = createFileRoute("/how-it-works")({
   head: () => ({
     meta: [
-      { title: "How No Cap works — Fund, apply, split" },
-      { name: "description", content: "One funded pool, open applications, a published formula. See how No Cap replaces per-creator negotiation with a performance split." },
-      { property: "og:title", content: "How No Cap works" },
-      { property: "og:description", content: "Fund a pool, open applications, pay by tracked results." },
+      { title: "How No Cap works — Fund a pool, split by tracked results" },
+      { name: "description", content: "Five steps: fund the pool, open applications, approve creators, split everything above baseline by tracked results, settle payouts. One published formula, no per-creator negotiation." },
+      { property: "og:title", content: "How No Cap works — one pool, one published split formula" },
+      { property: "og:description", content: "Fund a pool, open applications, and let tracked clicks, conversions, or views decide the split." },
     ],
   }),
   component: HowItWorks,
