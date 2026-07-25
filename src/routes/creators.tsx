@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { PageHero, SiteShell } from "@/components/site-chrome";
+import { PageFaq, PageHero, SiteShell } from "@/components/site-chrome";
 
 const px = (id: number, w = 600) =>
   `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}`;
@@ -68,6 +68,15 @@ function CreatorsPage() {
           </div>
         </div>
       </section>
+      <PageFaq
+        title="Creator questions we hear most"
+        items={[
+          { q: "Am I locked into a rate before I post?", a: "No. There is no per-creator rate card. You earn the published baseline for posting, plus a share of the pool sized to the tracked metric on the brief." },
+          { q: "Can I earn zero above baseline?", a: "Yes — if your post drives no tracked activity, you still keep baseline but earn nothing extra. Upside on the other side is uncapped." },
+          { q: "Do I have to be exclusive to No Cap?", a: "No. You can run brand deals anywhere else. Pool campaigns just replace the negotiation step for the brands that opt in." },
+          { q: "Who owns the content I post?", a: "You do, unless the brief explicitly negotiates usage rights — in which case that's spelled out on the campaign before you apply." },
+        ]}
+      />
     </SiteShell>
   );
 }
