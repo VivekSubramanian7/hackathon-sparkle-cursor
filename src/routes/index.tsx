@@ -164,10 +164,38 @@ function Index() {
 
         <section className="nc-logos-strip">
           <div className="nc-wrap">
-            <div className="nc-logos-label">Trusted by DTC product brands across the US, Germany &amp; India</div>
-            <div className="nc-logos-row">
-              {["Magic Spoon", "Quince", "Lovevery", "KoRo", "Purelei", "PrepMyMeal", "BlissClub", "Snitch", "The Pant Project"].map((b) => (
-                <span key={b} className="nc-logo-mark">{b}</span>
+            <div className="nc-logos-label">Trusted by DTC product brands</div>
+          </div>
+          <div className="nc-marquee" aria-hidden="false">
+            <div className="nc-marquee-track">
+              {[
+                { n: "Magic Spoon", d: "magicspoon.com" },
+                { n: "Quince", d: "onequince.com" },
+                { n: "Lovevery", d: "lovevery.com" },
+                { n: "KoRo", d: "korodrogerie.de" },
+                { n: "Purelei", d: "purelei.com" },
+                { n: "PrepMyMeal", d: "prepmymeal.com" },
+                { n: "BlissClub", d: "blissclub.com" },
+                { n: "Snitch", d: "snitch.co.in" },
+                { n: "The Pant Project", d: "thepantproject.com" },
+              ].concat([
+                { n: "Magic Spoon", d: "magicspoon.com" },
+                { n: "Quince", d: "onequince.com" },
+                { n: "Lovevery", d: "lovevery.com" },
+                { n: "KoRo", d: "korodrogerie.de" },
+                { n: "Purelei", d: "purelei.com" },
+                { n: "PrepMyMeal", d: "prepmymeal.com" },
+                { n: "BlissClub", d: "blissclub.com" },
+                { n: "Snitch", d: "snitch.co.in" },
+                { n: "The Pant Project", d: "thepantproject.com" },
+              ]).map((b, i) => (
+                <img
+                  key={`${b.n}-${i}`}
+                  className="nc-marquee-logo"
+                  src={`https://logo.clearbit.com/${b.d}`}
+                  alt={`${b.n} logo`}
+                  loading="lazy"
+                />
               ))}
             </div>
           </div>
