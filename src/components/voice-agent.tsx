@@ -17,6 +17,8 @@ export type VoiceAgentResult = {
   targetCpa: number;
   signupWeight: number;
   mode: "yolo" | "surgical";
+  website: string;
+  attachments: { name: string; size: number; type: string }[];
 };
 
 type Field = keyof VoiceAgentResult;
@@ -38,6 +40,8 @@ const DEFAULTS: VoiceAgentResult = {
   targetCpa: 10,
   signupWeight: 0.7,
   mode: "yolo",
+  website: "",
+  attachments: [],
 };
 
 const QUESTIONS: Question[] = [
@@ -171,7 +175,7 @@ export function VoiceAgent({
     if (!done) return;
     if (spokenRef.current.has(-1)) return;
     spokenRef.current.add(-1);
-    void speak("Great, that's everything. I've drafted your campaign. Review the form and hit fund when you're ready.");
+    void speak("Great, that's everything. I've drafted your campaign. Add your website or drop any brand docs in the review, then hit fund when you're ready.");
   }, [done, speak]);
 
   async function handleStop() {
