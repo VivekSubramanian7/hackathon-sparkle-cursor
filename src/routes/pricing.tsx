@@ -15,55 +15,56 @@ export const Route = createFileRoute("/pricing")({
 
 const tiers = [
   {
-    tag: "STARTER",
-    name: "Single pool",
-    take: "8%",
-    sub: "of the funded pool",
-    who: "One-off launch or seasonal push. Fund a pool, open applications, settle when the tracking window closes.",
+    tag: "FREE",
+    name: "Free",
+    take: "$0",
+    sub: "1 free campaign / month",
+    who: "Small DTC brands finding their first creator flywheel. Run one funded pool a month, on us — same baseline + split mechanics, no take rate.",
     perks: [
-      "One live pool at a time",
+      "1 live pool per month",
       "Baseline + performance-split payouts",
       "Tracked clicks or views as split metric",
-      "Email support",
+      "Community support",
     ],
-    cta: "Start a pool",
+    cta: "Start free",
   },
   {
     tag: "GROWTH",
-    name: "Always-on pools",
-    take: "6%",
-    sub: "of the funded pool",
-    who: "Rolling creator campaigns with new applications every week. The pool tops up, the formula stays published.",
+    name: "Growth",
+    take: "7%",
+    sub: "of each campaign budget",
+    who: "Brands running always-on UGC pools. Fund as many pools as you need — we take a flat 7% of each campaign budget, deducted at funding.",
     perks: [
       "Unlimited concurrent pools",
       "Attributed conversions as split metric",
       "Marketplace + private brief distribution",
       "Priority tracking & reconciliation",
     ],
-    cta: "Talk to us",
+    cta: "Start a pool",
     highlight: true,
   },
   {
-    tag: "SCALE",
-    name: "Custom",
+    tag: "ENTERPRISE",
+    name: "Enterprise",
     take: "Custom",
-    sub: "on committed volume",
-    who: "Brands running six-figure quarterly creator budgets that want a negotiated take rate against committed pool volume.",
+    sub: "tailored to your program",
+    who: "Large DTC programs that need AI influencers, negotiated take rates, and dedicated operators against committed quarterly pool volume.",
     perks: [
-      "Volume-tiered take rate",
+      "AI influencers & synthetic UGC",
+      "Negotiated volume-tiered take rate",
       "Custom attribution windows",
-      "Dedicated pool operator",
-      "SLA on payout settlement",
+      "Dedicated pool operator + SLA on settlement",
     ],
     cta: "Contact sales",
   },
 ];
 
 const faqs = [
-  { q: "Do you charge per seat or per creator?", a: "No. There are no per-seat, per-user, or per-creator fees. Our take is a percentage of the funded pool — the same variable-cost logic we apply to creator payouts applies to us." },
-  { q: "When is the take rate deducted?", a: "At pool funding. The number you see in the campaign is the true spend cap; nothing else gets added downstream." },
-  { q: "What if a creator earns only the baseline?", a: "Baseline is always paid on post. Our take is calculated on the funded pool up front, not on the residual — so paying baseline-only creators doesn't change what you owe us." },
-  { q: "Is the take rate negotiable at higher volume?", a: "Yes — the Scale tier exists specifically for brands committing to a rolling pool volume. Reach out for terms." },
+  { q: "What's actually free on the Free plan?", a: "One funded pool per month for small brands starting out. Same baseline + performance-split mechanics as the paid tiers — we just don't take a cut on that campaign." },
+  { q: "Do you charge per seat or per creator?", a: "No. There are no per-seat, per-user, or per-creator fees. On Growth we take 7% of each campaign budget; on Free we take nothing." },
+  { q: "When is the 7% deducted on Growth?", a: "At pool funding. The number you see in the campaign is the true spend cap; nothing else gets added downstream." },
+  { q: "What if a creator earns only the baseline?", a: "Baseline is always paid on post. Our take is calculated on the funded campaign budget up front, not on the residual — so paying baseline-only creators doesn't change what you owe us." },
+  { q: "What does Enterprise unlock beyond Growth?", a: "AI influencers and synthetic UGC, a negotiated take rate against committed quarterly pool volume, custom attribution windows, and a dedicated pool operator with an SLA on payout settlement." },
 ];
 
 function PricingPage() {
@@ -97,9 +98,6 @@ function PricingPage() {
               </div>
             ))}
           </div>
-          <p className="nc-form-note" style={{ textAlign: "center", marginTop: 32 }}>
-            Illustrative pricing — reach out for current terms as we pressure-test the model with early brands.
-          </p>
         </div>
       </section>
       <PageFaq
