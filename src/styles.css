@@ -310,6 +310,46 @@
 .nc-group-menu a span { display: block; font-size: 12.5px; color: var(--nc-cream-soft); margin-top: 2px; font-family: "IBM Plex Mono", monospace; }
 @media (max-width: 900px) { .nc-nav-groups, .nc-nav-divider { display: none; } }
 
+/* login dropdown in nav */
+.nc-login-group { position: relative; }
+.nc-login-trigger {
+  font-family: inherit; font-size: 14px; color: var(--nc-cream);
+  background: rgba(17,17,17,0.04); border: 1px solid var(--nc-line);
+  cursor: pointer; padding: 9px 16px; border-radius: 999px;
+  display: inline-flex; align-items: center; gap: 6px;
+  transition: background .2s ease, border-color .2s ease;
+}
+.nc-login-group:hover .nc-login-trigger,
+.nc-login-group:focus-within .nc-login-trigger { background: #fff; border-color: var(--nc-line-strong); }
+.nc-login-menu {
+  right: 0; left: auto; min-width: 240px;
+}
+.nc-login-label {
+  font-family: "IBM Plex Mono", monospace; font-size: 11px;
+  letter-spacing: 0.12em; color: var(--nc-cream-soft);
+  padding: 8px 12px 6px;
+}
+.nc-login-menu a { display: flex; align-items: center; gap: 12px; padding: 12px; }
+.nc-login-ico {
+  width: 28px; height: 28px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: rgba(255,95,31,0.10); color: var(--nc-accent); font-size: 14px;
+}
+
+/* signup / signin tabs on /login */
+.nc-role-tabs {
+  display: inline-flex; align-self: center; padding: 4px;
+  background: rgba(17,17,17,0.05); border: 1px solid var(--nc-line);
+  border-radius: 999px; margin-bottom: 8px;
+}
+.nc-role-tab {
+  font-family: inherit; font-size: 13.5px; color: var(--nc-cream-soft);
+  background: transparent; border: 0; cursor: pointer;
+  padding: 8px 18px; border-radius: 999px;
+  transition: background .2s ease, color .2s ease;
+}
+.nc-role-tab.on { background: var(--nc-accent); color: #fff; }
+
 /* buttons */
 .nc-btn {
   display: inline-flex; align-items: center; gap: 8px;
