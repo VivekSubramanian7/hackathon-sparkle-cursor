@@ -185,8 +185,8 @@ function Index() {
           <div className="nc-wrap">
             <div className="nc-section-head">
               <span className="nc-eyebrow">From a product goal to a live UGC pool — in one prompt</span>
-              <h2>Tell the Influencer Agent what you&rsquo;re shipping. It drafts the pool.</h2>
-              <p>Pick a goal, describe the drop, and No Cap proposes the pool size, baseline, tracked metric, and creator shortlist — you approve before it goes live.</p>
+              <h2>Tell the Scout agent what you&rsquo;re shipping. It drafts the pool.</h2>
+              <p>Scout is the brand-side agent. Describe the drop and it proposes the pool size, baseline, tracked metric, and creator shortlist — on the creator side, the Manager agent handles applications, deadlines, and payouts. You approve before anything goes live.</p>
             </div>
             <div className="nc-prompt-tabs">
               {prompts.map((pr, i) => (
@@ -245,7 +245,7 @@ function Index() {
             <div className="nc-feature-two">
               <div className="nc-ft-card">
                 <h3>Keep UGC campaigns moving without the manual work</h3>
-                <p>The Influencer Agent surfaces what needs attention in one action center: pending applicants, missed content deadlines, follow-ups. You approve, it moves.</p>
+                <p>Scout (brand side) and Manager (influencer side) surface what needs attention in one action center: pending applicants, missed content deadlines, follow-ups. You approve, they move.</p>
                 <div className="nc-ft-mock">
                   <div className="nc-ft-row"><b>Q2 Skincare Drop</b><span className="dot">● Action needed</span></div>
                   <div className="nc-ft-note">21 applied creators · Estimated spend $8.4K (30% under pool cap)</div>
@@ -261,9 +261,9 @@ function Index() {
                 <h3>Fast, compliant payouts — no matter how many creators</h3>
                 <p>Onboard once and pay every accepted creator through the No Cap wallet. Baseline settles on post, performance share settles when the tracking window closes.</p>
                 <div className="nc-ft-mock stack">
-                  <div className="nc-ft-name">@sagebotanicals <img src={px(38285050, 120)} alt="" /></div>
-                  <div className="nc-ft-name">@marakeeps <img src={px(15676271, 120)} alt="" /></div>
-                  <div className="nc-ft-name">@reallytina <img src={px(8294854, 120)} alt="" /></div>
+                <div className="nc-ft-name">@sagebotanicals <img src={px(38285050, 120)} alt="" /></div>
+                <div className="nc-ft-name">@noah.builds <img src={px(30805103, 120)} alt="" /></div>
+                <div className="nc-ft-name">@kai.trains <img src={px(35035634, 120)} alt="" /></div>
                   <div className="nc-ft-wallet">
                     <div><span>23 creators to pay</span><b>$34,550</b></div>
                     <div className="nc-ft-actions">
