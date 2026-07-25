@@ -4,10 +4,10 @@ import { PageHero, SiteShell } from "@/components/site-chrome";
 export const Route = createFileRoute("/thesis")({
   head: () => ({
     meta: [
-      { title: "The No Cap thesis — variable-cost influencer spend" },
-      { name: "description", content: "Three growth curves are converging on the DTC dollar, but influencer tooling is still manual. No Cap turns fixed influencer fees into performance-split pools." },
-      { property: "og:title", content: "The No Cap thesis" },
-      { property: "og:description", content: "Why performance-split pools replace flat influencer fees." },
+      { title: "Thesis — Why influencer spend has to go variable | No Cap" },
+      { name: "description", content: "A $203B creator economy still runs on flat fees and manual negotiations. Pooled, performance-split payouts turn fixed influencer costs into variable ones tied to tracked outcomes." },
+      { property: "og:title", content: "The No Cap thesis — variable-cost influencer spend" },
+      { property: "og:description", content: "Why performance-split pools replace flat fees and per-creator affiliate rates for DTC brands." },
     ],
   }),
   component: ThesisPage,

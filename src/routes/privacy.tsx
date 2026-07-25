@@ -4,10 +4,10 @@ import { PageHero, SiteShell } from "@/components/site-chrome";
 export const Route = createFileRoute("/privacy")({
   head: () => ({
     meta: [
-      { title: "Privacy — No Cap" },
-      { name: "description", content: "How No Cap collects, stores, and uses data for pool campaigns, creator applications, and performance tracking." },
-      { property: "og:title", content: "Privacy — No Cap" },
-      { property: "og:description", content: "How we handle brand and creator data." },
+      { title: "Privacy — What we track and why | No Cap" },
+      { name: "description", content: "The data we collect to run pool campaigns, how the tracked split metric works, retention windows, and how to request deletion." },
+      { property: "og:title", content: "No Cap privacy policy" },
+      { property: "og:description", content: "How brand and creator data flows through pool campaigns." },
     ],
   }),
   component: PrivacyPage,

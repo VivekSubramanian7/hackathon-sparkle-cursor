@@ -5,10 +5,10 @@ import { PageHero, SiteShell } from "@/components/site-chrome";
 export const Route = createFileRoute("/login")({
   head: () => ({
     meta: [
-      { title: "Login — No Cap" },
-      { name: "description", content: "Log in to manage your pool campaigns, review applications, and track the performance split." },
+      { title: "Log in — Manage your pool campaigns | No Cap" },
+      { name: "description", content: "Sign in to run pool campaigns, review applicants, and watch the performance split rebalance as tracked results land." },
       { property: "og:title", content: "Log in to No Cap" },
-      { property: "og:description", content: "Manage pool campaigns and creator applications." },
+      { property: "og:description", content: "Manage pools, applicants, and the live performance split." },
     ],
   }),
   component: LoginPage,

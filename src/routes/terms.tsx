@@ -4,10 +4,10 @@ import { PageHero, SiteShell } from "@/components/site-chrome";
 export const Route = createFileRoute("/terms")({
   head: () => ({
     meta: [
-      { title: "Terms — No Cap" },
-      { name: "description", content: "Terms of service for brands funding pools and creators applying into No Cap campaigns." },
-      { property: "og:title", content: "Terms — No Cap" },
-      { property: "og:description", content: "Ground rules for pools, baselines, and payouts." },
+      { title: "Terms — Ground rules for pools, baselines, and payouts | No Cap" },
+      { name: "description", content: "Terms for brands funding pools and creators applying in: baselines guaranteed on post, performance share settled by the published formula, no metric manipulation." },
+      { property: "og:title", content: "No Cap terms of service" },
+      { property: "og:description", content: "How funded pools, baselines, and performance splits are governed." },
     ],
   }),
   component: TermsPage,

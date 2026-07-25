@@ -256,6 +256,8 @@
   padding: 10px 14px 10px 22px;
 }
 .nc-logo { font-family: "Instrument Serif", serif; font-size: 22px; display: flex; align-items: center; gap: 10px; color: var(--nc-cream); }
+.nc-wordmark { height: 34px; width: auto; display: block; color: var(--nc-cream); }
+.nc-footer-brand .nc-wordmark { height: 40px; }
 .nc-logo .dot {
   width: 12px; height: 12px; border-radius: 3px;
   background: linear-gradient(135deg, var(--nc-accent), var(--nc-accent-2));

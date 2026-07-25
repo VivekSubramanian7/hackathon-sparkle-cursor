@@ -1,0 +1,5 @@
+<svg viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg">
+  <rect width="900" height="320" fill="#F7F7F2"/>
+  <text x="60" y="205" font-family="Georgia, 'Times New Roman', serif" font-weight="700" font-size="150" fill="#111111">No Cap</text>
+  <rect x="64" y="230" width="230" height="16" rx="8" fill="#CFFF04"/>
+</svg>

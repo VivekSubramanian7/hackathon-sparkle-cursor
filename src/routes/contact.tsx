@@ -5,10 +5,10 @@ import { PageHero, SiteShell } from "@/components/site-chrome";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — No Cap" },
-      { name: "description", content: "Talk to the No Cap team about running a performance-split influencer pool for your brand." },
+      { title: "Contact — Talk to us about a pool campaign | No Cap" },
+      { name: "description", content: "Questions about the split, baselines, tracked metrics, or running a pool in your category? Reach the No Cap team and we'll walk you through it." },
       { property: "og:title", content: "Contact No Cap" },
-      { property: "og:description", content: "Talk to us about running a pool campaign." },
+      { property: "og:description", content: "Talk to us about running a performance-split influencer pool." },
     ],
   }),
   component: ContactPage,
