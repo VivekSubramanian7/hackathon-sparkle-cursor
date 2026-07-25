@@ -42,6 +42,8 @@ function CreateWizard() {
   const [targetCpa, setTargetCpa] = useState<number>(10);
   const [signupWeight, setSignupWeight] = useState<number>(0.7);
   const [mode, setMode] = useState<"yolo" | "surgical">("yolo");
+  const [website, setWebsite] = useState("");
+  const [attachments, setAttachments] = useState<{ name: string; size: number; type: string }[]>([]);
   const [paying, setPaying] = useState(false);
 
   const seats = maxSeats(poolEur, targetCpa);
@@ -55,6 +57,8 @@ function CreateWizard() {
     setTargetCpa(r.targetCpa);
     setSignupWeight(r.signupWeight);
     setMode(r.mode);
+    setWebsite(r.website);
+    setAttachments(r.attachments);
     setPhase("fund");
   }
 
@@ -67,10 +71,12 @@ function CreateWizard() {
     if (r.targetCpa) setTargetCpa(r.targetCpa);
     if (typeof r.signupWeight === "number") setSignupWeight(r.signupWeight);
     if (r.mode) setMode(r.mode);
+    if (r.website) setWebsite(r.website);
+    if (r.attachments?.length) setAttachments(r.attachments);
   }
 
   function currentAsAgent(): VoiceAgentResult {
-    return { title, brandName, brief, guidelines, poolEur, targetCpa, signupWeight, mode };
+    return { title, brandName, brief, guidelines, poolEur, targetCpa, signupWeight, mode, website, attachments };
   }
 
   async function pay() {
