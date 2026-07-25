@@ -55,7 +55,7 @@ export function SiteNav() {
               <div className="nc-group-menu">
                 <Link to="/how-it-works"><b>How it works</b><span>The pool → split → payout flow</span></Link>
                 <Link to="/pricing"><b>Pricing</b><span>Take rate on the funded pool</span></Link>
-                <Link to="/start"><b>Start a campaign</b><span>Fund a pool and open applications</span></Link>
+                <Link to="/brand/create"><b>Create a campaign</b><span>Speak your brief, fund the pool</span></Link>
               </div>
             </div>
             <div className="nc-group">

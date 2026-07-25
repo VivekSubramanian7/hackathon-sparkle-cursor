@@ -20,6 +20,8 @@ import { Route as HowItWorksRouteImport } from './routes/how-it-works'
 import { Route as CreatorsRouteImport } from './routes/creators'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as BrandCreateRouteImport } from './routes/brand.create'
+import { Route as ApiVoiceStructureRouteImport } from './routes/api/voice/structure'
 
 const ThesisRoute = ThesisRouteImport.update({
   id: '/thesis',
@@ -76,6 +78,16 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BrandCreateRoute = BrandCreateRouteImport.update({
+  id: '/brand/create',
+  path: '/brand/create',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiVoiceStructureRoute = ApiVoiceStructureRouteImport.update({
+  id: '/api/voice/structure',
+  path: '/api/voice/structure',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -89,6 +101,8 @@ export interface FileRoutesByFullPath {
   '/start': typeof StartRoute
   '/terms': typeof TermsRoute
   '/thesis': typeof ThesisRoute
+  '/brand/create': typeof BrandCreateRoute
+  '/api/voice/structure': typeof ApiVoiceStructureRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -102,6 +116,8 @@ export interface FileRoutesByTo {
   '/start': typeof StartRoute
   '/terms': typeof TermsRoute
   '/thesis': typeof ThesisRoute
+  '/brand/create': typeof BrandCreateRoute
+  '/api/voice/structure': typeof ApiVoiceStructureRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -116,6 +132,8 @@ export interface FileRoutesById {
   '/start': typeof StartRoute
   '/terms': typeof TermsRoute
   '/thesis': typeof ThesisRoute
+  '/brand/create': typeof BrandCreateRoute
+  '/api/voice/structure': typeof ApiVoiceStructureRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -131,6 +149,8 @@ export interface FileRouteTypes {
     | '/start'
     | '/terms'
     | '/thesis'
+    | '/brand/create'
+    | '/api/voice/structure'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -144,6 +164,8 @@ export interface FileRouteTypes {
     | '/start'
     | '/terms'
     | '/thesis'
+    | '/brand/create'
+    | '/api/voice/structure'
   id:
     | '__root__'
     | '/'
@@ -157,6 +179,8 @@ export interface FileRouteTypes {
     | '/start'
     | '/terms'
     | '/thesis'
+    | '/brand/create'
+    | '/api/voice/structure'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -171,6 +195,8 @@ export interface RootRouteChildren {
   StartRoute: typeof StartRoute
   TermsRoute: typeof TermsRoute
   ThesisRoute: typeof ThesisRoute
+  BrandCreateRoute: typeof BrandCreateRoute
+  ApiVoiceStructureRoute: typeof ApiVoiceStructureRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -252,6 +278,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/brand/create': {
+      id: '/brand/create'
+      path: '/brand/create'
+      fullPath: '/brand/create'
+      preLoaderRoute: typeof BrandCreateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/voice/structure': {
+      id: '/api/voice/structure'
+      path: '/api/voice/structure'
+      fullPath: '/api/voice/structure'
+      preLoaderRoute: typeof ApiVoiceStructureRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -267,6 +307,8 @@ const rootRouteChildren: RootRouteChildren = {
   StartRoute: StartRoute,
   TermsRoute: TermsRoute,
   ThesisRoute: ThesisRoute,
+  BrandCreateRoute: BrandCreateRoute,
+  ApiVoiceStructureRoute: ApiVoiceStructureRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
