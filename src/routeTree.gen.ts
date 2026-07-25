@@ -21,8 +21,12 @@ import { Route as CreatorsRouteImport } from './routes/creators'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CampaignsIndexRouteImport } from './routes/campaigns.index'
+import { Route as CreatorPayoutsRouteImport } from './routes/creator.payouts'
+import { Route as CreatorActiveRouteImport } from './routes/creator.active'
 import { Route as CampaignsIdRouteImport } from './routes/campaigns.$id'
 import { Route as BrandCreateRouteImport } from './routes/brand.create'
+import { Route as BrandCampaignsIndexRouteImport } from './routes/brand.campaigns.index'
+import { Route as BrandCampaignsIdRouteImport } from './routes/brand.campaigns.$id'
 import { Route as ApiVoiceTtsRouteImport } from './routes/api/voice/tts'
 import { Route as ApiVoiceStructureRouteImport } from './routes/api/voice/structure'
 
@@ -86,6 +90,16 @@ const CampaignsIndexRoute = CampaignsIndexRouteImport.update({
   path: '/campaigns/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CreatorPayoutsRoute = CreatorPayoutsRouteImport.update({
+  id: '/creator/payouts',
+  path: '/creator/payouts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CreatorActiveRoute = CreatorActiveRouteImport.update({
+  id: '/creator/active',
+  path: '/creator/active',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CampaignsIdRoute = CampaignsIdRouteImport.update({
   id: '/campaigns/$id',
   path: '/campaigns/$id',
@@ -94,6 +108,16 @@ const CampaignsIdRoute = CampaignsIdRouteImport.update({
 const BrandCreateRoute = BrandCreateRouteImport.update({
   id: '/brand/create',
   path: '/brand/create',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BrandCampaignsIndexRoute = BrandCampaignsIndexRouteImport.update({
+  id: '/brand/campaigns/',
+  path: '/brand/campaigns/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BrandCampaignsIdRoute = BrandCampaignsIdRouteImport.update({
+  id: '/brand/campaigns/$id',
+  path: '/brand/campaigns/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiVoiceTtsRoute = ApiVoiceTtsRouteImport.update({
@@ -121,9 +145,13 @@ export interface FileRoutesByFullPath {
   '/thesis': typeof ThesisRoute
   '/brand/create': typeof BrandCreateRoute
   '/campaigns/$id': typeof CampaignsIdRoute
+  '/creator/active': typeof CreatorActiveRoute
+  '/creator/payouts': typeof CreatorPayoutsRoute
   '/campaigns/': typeof CampaignsIndexRoute
   '/api/voice/structure': typeof ApiVoiceStructureRoute
   '/api/voice/tts': typeof ApiVoiceTtsRoute
+  '/brand/campaigns/$id': typeof BrandCampaignsIdRoute
+  '/brand/campaigns/': typeof BrandCampaignsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -139,9 +167,13 @@ export interface FileRoutesByTo {
   '/thesis': typeof ThesisRoute
   '/brand/create': typeof BrandCreateRoute
   '/campaigns/$id': typeof CampaignsIdRoute
+  '/creator/active': typeof CreatorActiveRoute
+  '/creator/payouts': typeof CreatorPayoutsRoute
   '/campaigns': typeof CampaignsIndexRoute
   '/api/voice/structure': typeof ApiVoiceStructureRoute
   '/api/voice/tts': typeof ApiVoiceTtsRoute
+  '/brand/campaigns/$id': typeof BrandCampaignsIdRoute
+  '/brand/campaigns': typeof BrandCampaignsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -158,9 +190,13 @@ export interface FileRoutesById {
   '/thesis': typeof ThesisRoute
   '/brand/create': typeof BrandCreateRoute
   '/campaigns/$id': typeof CampaignsIdRoute
+  '/creator/active': typeof CreatorActiveRoute
+  '/creator/payouts': typeof CreatorPayoutsRoute
   '/campaigns/': typeof CampaignsIndexRoute
   '/api/voice/structure': typeof ApiVoiceStructureRoute
   '/api/voice/tts': typeof ApiVoiceTtsRoute
+  '/brand/campaigns/$id': typeof BrandCampaignsIdRoute
+  '/brand/campaigns/': typeof BrandCampaignsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -178,9 +214,13 @@ export interface FileRouteTypes {
     | '/thesis'
     | '/brand/create'
     | '/campaigns/$id'
+    | '/creator/active'
+    | '/creator/payouts'
     | '/campaigns/'
     | '/api/voice/structure'
     | '/api/voice/tts'
+    | '/brand/campaigns/$id'
+    | '/brand/campaigns/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -196,9 +236,13 @@ export interface FileRouteTypes {
     | '/thesis'
     | '/brand/create'
     | '/campaigns/$id'
+    | '/creator/active'
+    | '/creator/payouts'
     | '/campaigns'
     | '/api/voice/structure'
     | '/api/voice/tts'
+    | '/brand/campaigns/$id'
+    | '/brand/campaigns'
   id:
     | '__root__'
     | '/'
@@ -214,9 +258,13 @@ export interface FileRouteTypes {
     | '/thesis'
     | '/brand/create'
     | '/campaigns/$id'
+    | '/creator/active'
+    | '/creator/payouts'
     | '/campaigns/'
     | '/api/voice/structure'
     | '/api/voice/tts'
+    | '/brand/campaigns/$id'
+    | '/brand/campaigns/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -233,9 +281,13 @@ export interface RootRouteChildren {
   ThesisRoute: typeof ThesisRoute
   BrandCreateRoute: typeof BrandCreateRoute
   CampaignsIdRoute: typeof CampaignsIdRoute
+  CreatorActiveRoute: typeof CreatorActiveRoute
+  CreatorPayoutsRoute: typeof CreatorPayoutsRoute
   CampaignsIndexRoute: typeof CampaignsIndexRoute
   ApiVoiceStructureRoute: typeof ApiVoiceStructureRoute
   ApiVoiceTtsRoute: typeof ApiVoiceTtsRoute
+  BrandCampaignsIdRoute: typeof BrandCampaignsIdRoute
+  BrandCampaignsIndexRoute: typeof BrandCampaignsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -324,6 +376,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CampaignsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/creator/payouts': {
+      id: '/creator/payouts'
+      path: '/creator/payouts'
+      fullPath: '/creator/payouts'
+      preLoaderRoute: typeof CreatorPayoutsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/creator/active': {
+      id: '/creator/active'
+      path: '/creator/active'
+      fullPath: '/creator/active'
+      preLoaderRoute: typeof CreatorActiveRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/campaigns/$id': {
       id: '/campaigns/$id'
       path: '/campaigns/$id'
@@ -336,6 +402,20 @@ declare module '@tanstack/react-router' {
       path: '/brand/create'
       fullPath: '/brand/create'
       preLoaderRoute: typeof BrandCreateRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/brand/campaigns/': {
+      id: '/brand/campaigns/'
+      path: '/brand/campaigns'
+      fullPath: '/brand/campaigns/'
+      preLoaderRoute: typeof BrandCampaignsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/brand/campaigns/$id': {
+      id: '/brand/campaigns/$id'
+      path: '/brand/campaigns/$id'
+      fullPath: '/brand/campaigns/$id'
+      preLoaderRoute: typeof BrandCampaignsIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/voice/tts': {
@@ -369,9 +449,13 @@ const rootRouteChildren: RootRouteChildren = {
   ThesisRoute: ThesisRoute,
   BrandCreateRoute: BrandCreateRoute,
   CampaignsIdRoute: CampaignsIdRoute,
+  CreatorActiveRoute: CreatorActiveRoute,
+  CreatorPayoutsRoute: CreatorPayoutsRoute,
   CampaignsIndexRoute: CampaignsIndexRoute,
   ApiVoiceStructureRoute: ApiVoiceStructureRoute,
   ApiVoiceTtsRoute: ApiVoiceTtsRoute,
+  BrandCampaignsIdRoute: BrandCampaignsIdRoute,
+  BrandCampaignsIndexRoute: BrandCampaignsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
