@@ -458,6 +458,43 @@ function Index() {
           </div>
         </section>
 
+        <section id="thesis" className="nc-section nc-panel-bg">
+          <div className="nc-wrap">
+            <div className="nc-section-head">
+              <span className="nc-eyebrow">Why now</span>
+              <h2>Three curves are converging on the same DTC dollar.</h2>
+              <p>
+                E-commerce is compounding, creator spend is scaling faster than e-commerce itself,
+                and the software layer underneath influencer budgets is finally catching up. The
+                money is already moving — the mechanism hasn't.
+              </p>
+            </div>
+            <div className="nc-thesis-grid">
+              <div className="nc-thesis-card">
+                <span className="k">E-commerce</span>
+                <div className="n">$80.5T</div>
+                <p>Global e-commerce is projected to grow from $17.1T (2022) to $80.5T by 2030 — a 26.5% CAGR of commerce moving online.</p>
+                <span className="src">Source: Adroit Market Research</span>
+              </div>
+              <div className="nc-thesis-card">
+                <span className="k">Creator economy</span>
+                <div className="n">$848B</div>
+                <p>Creator spend scales from $203B in 2025 to $848B by 2032. Creators are now a primary DTC acquisition channel, not a side experiment.</p>
+                <span className="src">Source: Forbes / INGENIUS Studio</span>
+              </div>
+              <div className="nc-thesis-card">
+                <span className="k">Influencer tooling</span>
+                <div className="n">$97.6B</div>
+                <p>The software brands use to run and measure creator campaigns grows ~4× — from $25.4B (2024) to $97.6B by 2030. Budget is shifting to structured tools.</p>
+                <span className="src">Source: Grand View Research</span>
+              </div>
+            </div>
+            <p className="nc-form-note" style={{ marginTop: 28 }}>
+              <Link to="/thesis" className="nc-login">Read the full No Cap thesis →</Link>
+            </p>
+          </div>
+        </section>
+
         <section id="get-started" className="nc-section">
           <div className="nc-wrap">
             <div className="nc-cta-banner">
