@@ -1274,3 +1274,20 @@
   background: #FBFBF6;
   font-size: 0.85rem; color: rgba(0,0,0,0.65);
 }
+
+/* Brand HQ + creator ledger */
+.nc-hq-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 0.5rem; }
+.nc-hq-row { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 0.75rem 1rem; border: 1px solid color-mix(in oklab, var(--nc-cream) 12%, transparent); border-radius: 12px; }
+.nc-hq-table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; }
+.nc-hq-table th, .nc-hq-table td { text-align: left; padding: 0.6rem 0.75rem; border-bottom: 1px solid color-mix(in oklab, var(--nc-cream) 10%, transparent); font-size: 0.95rem; }
+.nc-hq-table th { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; color: color-mix(in oklab, var(--nc-cream) 60%, transparent); }
+.nc-hq-total td { font-weight: 700; border-top: 2px solid var(--nc-orange, #FF5F1F); border-bottom: none; }
+
+/* Floating demo bar */
+.nc-demobar { position: fixed; bottom: 16px; right: 16px; z-index: 60; display: flex; align-items: center; gap: 8px; padding: 6px 8px; background: #111; color: #F7F7F2; border-radius: 999px; box-shadow: 0 12px 32px rgba(0,0,0,0.25); font-family: 'IBM Plex Mono', monospace; font-size: 12px; }
+.nc-demobar-label { padding: 0 6px; opacity: 0.7; text-transform: uppercase; letter-spacing: 0.08em; }
+.nc-demobar-toggle { display: inline-flex; background: rgba(255,255,255,0.08); border-radius: 999px; padding: 2px; }
+.nc-demobar-toggle button { background: transparent; color: inherit; border: 0; padding: 6px 12px; border-radius: 999px; cursor: pointer; font: inherit; }
+.nc-demobar-toggle button.is-on { background: var(--nc-orange, #FF5F1F); color: #111; font-weight: 700; }
+.nc-demobar-reset { background: transparent; color: inherit; border: 1px solid rgba(255,255,255,0.2); border-radius: 999px; padding: 6px 12px; cursor: pointer; font: inherit; }
+.nc-demobar-reset:hover { border-color: var(--nc-orange, #FF5F1F); color: var(--nc-orange, #FF5F1F); }
