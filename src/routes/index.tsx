@@ -76,6 +76,7 @@ function Index() {
   const [baseline, setBaseline] = useState(200);
   const [creators, setCreators] = useState<Creator[]>(initialCreators);
   const [promptTab, setPromptTab] = useState(0);
+  const [marketCat, setMarketCat] = useState<Category>("All");
   const prompts = [
     { t: "Launch a product drop", p: "Fund a $12K UGC pool for our new vitamin C serum — 25 skincare creators, split by tracked add-to-carts." },
     { t: "Push a bestseller", p: "Reignite our top SKU with 40 TikTok creators, baseline $150, pool splits on verified 3s views + swipe-ups." },
