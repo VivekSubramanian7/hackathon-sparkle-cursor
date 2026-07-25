@@ -643,6 +643,75 @@
 .nc-creator-body .meta { font-family: "IBM Plex Mono", monospace; font-size: 11.5px; color: var(--nc-cream-soft); letter-spacing: 0.04em; }
 .nc-creator-body .row { display: flex; justify-content: space-between; align-items: center; margin-top: 14px; }
 .nc-creator-body .rate { font-family: "IBM Plex Mono", monospace; font-size: 13px; color: var(--nc-accent); }
+
+.nc-hero-slim { padding: 56px 0 24px; }
+.nc-hero-slim .nc-inner { margin-bottom: 8px; }
+.nc-hero-slim h1 { font-size: clamp(40px, 6vw, 68px); }
+
+.nc-thesis-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 32px;
+}
+@media (max-width: 900px) { .nc-thesis-grid { grid-template-columns: 1fr; } }
+.nc-thesis-card {
+  border: 1px solid var(--nc-line);
+  border-radius: 20px;
+  padding: 28px;
+  background: rgba(255,255,255,0.02);
+}
+.nc-thesis-card .k {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--nc-accent);
+  text-transform: uppercase;
+}
+.nc-thesis-card .n {
+  font-family: "Instrument Serif", serif;
+  font-size: 44px;
+  line-height: 1;
+  margin: 14px 0 12px;
+  color: var(--nc-cream);
+}
+.nc-thesis-card p { font-size: 14px; color: var(--nc-cream-dim); line-height: 1.6; }
+.nc-thesis-card .src { display: block; margin-top: 12px; font-size: 11px; color: var(--nc-cream-dim); opacity: 0.7; }
+
+.nc-prose { max-width: 780px; margin: 0 auto; }
+.nc-prose h2 { font-family: "Instrument Serif", serif; font-size: 32px; margin: 40px 0 14px; color: var(--nc-cream); }
+.nc-prose h3 { font-size: 16px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--nc-accent); margin: 32px 0 10px; font-family: "IBM Plex Mono", monospace; }
+.nc-prose p { color: var(--nc-cream-dim); line-height: 1.75; margin-bottom: 16px; font-size: 15.5px; }
+.nc-prose ul { color: var(--nc-cream-dim); line-height: 1.75; margin: 0 0 16px 20px; }
+.nc-prose li { margin-bottom: 8px; font-size: 15.5px; }
+.nc-prose strong { color: var(--nc-cream); }
+
+.nc-form-card {
+  max-width: 560px;
+  margin: 40px auto 0;
+  border: 1px solid var(--nc-line);
+  border-radius: 20px;
+  padding: 32px;
+  background: rgba(255,255,255,0.02);
+  display: grid;
+  gap: 16px;
+}
+.nc-form-card label { font-family: "IBM Plex Mono", monospace; font-size: 11px; letter-spacing: 0.14em; color: var(--nc-cream-dim); text-transform: uppercase; }
+.nc-form-card input, .nc-form-card textarea, .nc-form-card select {
+  width: 100%;
+  background: rgba(0,0,0,0.35);
+  border: 1px solid var(--nc-line);
+  border-radius: 12px;
+  padding: 12px 14px;
+  color: var(--nc-cream);
+  font-size: 14px;
+  margin-top: 6px;
+  font-family: inherit;
+}
+.nc-form-card textarea { min-height: 110px; resize: vertical; }
+.nc-form-card .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+@media (max-width: 600px) { .nc-form-card .row2 { grid-template-columns: 1fr; } }
+.nc-form-note { text-align: center; color: var(--nc-cream-dim); font-size: 13px; margin-top: 14px; }
 .nc-creator-body .cats { font-size: 11px; color: var(--nc-cream-soft); font-family: "IBM Plex Mono", monospace; }
 .nc-creator-tag {
   position: absolute; top: 12px; left: 12px;

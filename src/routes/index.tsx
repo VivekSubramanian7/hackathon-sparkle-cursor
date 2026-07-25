@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Link } from "@tanstack/react-router";
 import { useMemo, useState } from "react";
+import { SiteShell } from "@/components/site-chrome";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -20,14 +22,14 @@ const px = (id: number, w = 600) =>
   `https://images.pexels.com/photos/${id}/pexels-photo-${id}.jpeg?auto=compress&cs=tinysrgb&w=${w}`;
 
 const marketCreators = [
-  { id: 15676271, name: "Camila R.", handle: "@camila.streetstyle", cats: "Fashion · Beauty", followers: "184K", rate: "from $420", tag: "TOP 5%" },
-  { id: 30805103, name: "Noah W.", handle: "@noah.builds", cats: "Home · DIY", followers: "62K", rate: "from $210", tag: "NEW" },
-  { id: 38285050, name: "Aria K.", handle: "@aria.everyday", cats: "Lifestyle · Wellness", followers: "241K", rate: "from $540", tag: "TOP 5%" },
-  { id: 13929184, name: "Devon P.", handle: "@devon.pours", cats: "Food & Beverage", followers: "88K", rate: "from $280", tag: "OPEN" },
-  { id: 8294854, name: "Sana M.", handle: "@sanaskin", cats: "Skincare", followers: "156K", rate: "from $380", tag: "TOP 5%" },
-  { id: 35035634, name: "Kai T.", handle: "@kai.trains", cats: "Fitness · Supplements", followers: "104K", rate: "from $320", tag: "OPEN" },
-  { id: 24454074, name: "Mila V.", handle: "@milavero", cats: "Apparel · Style", followers: "73K", rate: "from $260", tag: "NEW" },
-  { id: 20524458, name: "Ren S.", handle: "@renshoots", cats: "Pet · Lifestyle", followers: "51K", rate: "from $180", tag: "OPEN" },
+  { id: 15676271, name: "Camila R.", handle: "@camila.streetstyle", cats: "Fashion · Beauty", followers: "184K", tag: "TOP 5%" },
+  { id: 30805103, name: "Noah W.", handle: "@noah.builds", cats: "Home · DIY", followers: "62K", tag: "NEW" },
+  { id: 38285050, name: "Aria K.", handle: "@aria.everyday", cats: "Lifestyle · Wellness", followers: "241K", tag: "TOP 5%" },
+  { id: 13929184, name: "Devon P.", handle: "@devon.pours", cats: "Food & Beverage", followers: "88K", tag: "OPEN" },
+  { id: 8294854, name: "Sana M.", handle: "@sanaskin", cats: "Skincare", followers: "156K", tag: "TOP 5%" },
+  { id: 35035634, name: "Kai T.", handle: "@kai.trains", cats: "Fitness · Supplements", followers: "104K", tag: "OPEN" },
+  { id: 24454074, name: "Mila V.", handle: "@milavero", cats: "Apparel · Style", followers: "73K", tag: "NEW" },
+  { id: 20524458, name: "Ren S.", handle: "@renshoots", cats: "Pet · Lifestyle", followers: "51K", tag: "OPEN" },
 ];
 
 const voices = [
