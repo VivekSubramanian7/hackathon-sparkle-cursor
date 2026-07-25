@@ -118,6 +118,8 @@ type Ctx = {
   advanceDemo: (id: string) => void;
   ingestMockMetrics: (id: string) => void;
   settleCampaign: (id: string) => void;
+  surgicalAccept: (campaignId: string, participationId: string) => void;
+  surgicalReject: (campaignId: string, participationId: string) => void;
   setRole: (role: "brand" | "creator") => void;
   resetDemo: () => void;
 };
@@ -240,6 +242,8 @@ export function DemoStoreProvider({ children }: { children: ReactNode }) {
     setState((s) => {
       const camp = s.campaigns.find((c) => c.id === cid);
       if (!camp) return s;
+      // Idempotent: if already settled with ledger lines, no-op
+      if (s.ledger.some((l) => l.campaignId === cid) && camp.status === "settled") return s;
       const events = s.metrics.filter((m) => m.campaignId === cid);
       const lines = settle({
         poolEur: camp.poolEur,
@@ -259,6 +263,32 @@ export function DemoStoreProvider({ children }: { children: ReactNode }) {
     });
   }, []);
 
+  const surgicalAccept: Ctx["surgicalAccept"] = useCallback((cid, pid) => {
+    setState((s) => {
+      const camp = s.campaigns.find((c) => c.id === cid);
+      if (!camp) return s;
+      if (camp.seatsFilled >= camp.maxSeats) return s;
+      return {
+        ...s,
+        participations: s.participations.map((p) =>
+          p.id === pid ? { ...p, state: "accepted" } : p,
+        ),
+        campaigns: s.campaigns.map((c) =>
+          c.id === cid ? { ...c, seatsFilled: c.seatsFilled + 1 } : c,
+        ),
+      };
+    });
+  }, []);
+
+  const surgicalReject: Ctx["surgicalReject"] = useCallback((cid, pid) => {
+    setState((s) => ({
+      ...s,
+      participations: s.participations.map((p) =>
+        p.id === pid && p.campaignId === cid ? { ...p, state: "rejected" } : p,
+      ),
+    }));
+  }, []);
+
   const setRole: Ctx["setRole"] = useCallback((role) => setState((s) => ({ ...s, role })), []);
   const resetDemo = useCallback(() => setState(seed()), []);
 
@@ -272,10 +302,12 @@ export function DemoStoreProvider({ children }: { children: ReactNode }) {
       advanceDemo,
       ingestMockMetrics,
       settleCampaign,
+      surgicalAccept,
+      surgicalReject,
       setRole,
       resetDemo,
     }),
-    [state, createDraft, fundCampaign, yoloJoin, surgicalApply, advanceDemo, ingestMockMetrics, settleCampaign, setRole, resetDemo],
+    [state, createDraft, fundCampaign, yoloJoin, surgicalApply, advanceDemo, ingestMockMetrics, settleCampaign, surgicalAccept, surgicalReject, setRole, resetDemo],
   );
 
   return <DemoCtx.Provider value={value}>{children}</DemoCtx.Provider>;
