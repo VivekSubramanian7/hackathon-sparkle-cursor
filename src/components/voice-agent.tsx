@@ -71,16 +71,6 @@ const QUESTIONS: Question[] = [
     },
   },
   {
-    field: "targetCpa",
-    label: "Target CPA",
-    prompt: "What's your target cost per signup, in euros? Something like 8, 10, or 12.",
-    parse: (t) => {
-      const n = parseCpa(t);
-      if (!n || n <= 0) return null;
-      return { targetCpa: n };
-    },
-  },
-  {
     field: "signupWeight",
     label: "Weights",
     prompt: "Do you care more about signups, more about reach, or a mix? You can also say a percent, like 70% signups.",
