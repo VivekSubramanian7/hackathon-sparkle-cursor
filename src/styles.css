@@ -1141,3 +1141,41 @@
 .nc-role-card b { font-size: 18px; color: #111; }
 .nc-role-card p { font-size: 14px; color: rgba(17,17,17,.7); margin: 0; }
 .nc-role-cta { margin-top: 6px; font-weight: 600; color: #FF5F1F; font-size: 14px; }
+
+/* Voice agent (Scout) */
+.nc-agent { display: grid; gap: 1.25rem; }
+.nc-agent-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem; }
+.nc-agent-head h2 { margin: 0.25rem 0 0; font-family: "Instrument Serif", serif; font-size: 1.75rem; }
+.nc-agent-progress { display: flex; gap: 4px; }
+.nc-agent-progress span { width: 22px; height: 4px; border-radius: 2px; background: rgba(0,0,0,0.08); }
+.nc-agent-progress span.is-current { background: #FF5F1F; }
+.nc-agent-progress span.is-done { background: #111; }
+
+.nc-agent-transcript {
+  display: grid; gap: 0.5rem;
+  max-height: 320px; overflow-y: auto;
+  padding: 1rem; border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 14px; background: #FBFBF6;
+}
+.nc-agent-turn { display: grid; gap: 2px; }
+.nc-agent-turn .nc-agent-who {
+  font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase;
+  color: rgba(0,0,0,0.5); font-family: "IBM Plex Mono", monospace;
+}
+.nc-agent-turn p { margin: 0; line-height: 1.45; }
+.nc-agent-turn.is-scout p { color: #111; }
+.nc-agent-turn.is-you p {
+  color: #111; background: #FFE7D6; padding: 0.5rem 0.75rem;
+  border-radius: 10px; align-self: start; max-width: 92%;
+}
+.nc-agent-turn.is-typing p { opacity: 0.6; }
+
+.nc-agent-cta {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 0.9rem 1rem; border: 1px dashed rgba(255,95,31,0.5);
+  background: #FFF5EE; border-radius: 12px; margin-bottom: 0.9rem;
+}
+.nc-agent-cta b { display: block; font-size: 0.95rem; }
+.nc-agent-cta span { display: block; font-size: 0.85rem; color: rgba(0,0,0,0.6); }
+
+.nc-agent-review { margin-top: 0.5rem; }

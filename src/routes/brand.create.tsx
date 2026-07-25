@@ -6,6 +6,7 @@ import { Waveform } from "@/components/waveform";
 import { useRecorder } from "@/hooks/use-recorder";
 import { useDemoStore } from "@/lib/demo-store";
 import { maxSeats, type CampaignDraft } from "@/domain/structure";
+import { VoiceAgent, type VoiceAgentResult } from "@/components/voice-agent";
 
 export const Route = createFileRoute("/brand/create")({
   head: () => ({
@@ -34,6 +35,7 @@ function CreateWizard() {
   const navigate = useNavigate();
   const { createDraft, fundCampaign } = useDemoStore();
   const [step, setStep] = useState<Step>(0);
+  const [agentOpen, setAgentOpen] = useState(false);
   const [transcript, setTranscript] = useState("");
   const [title, setTitle] = useState("");
   const [brandName, setBrandName] = useState("");
@@ -46,6 +48,19 @@ function CreateWizard() {
   const [paying, setPaying] = useState(false);
 
   const seats = maxSeats(poolEur, targetCpa);
+
+  function applyAgent(r: VoiceAgentResult) {
+    setTitle(r.title);
+    setBrandName(r.brandName);
+    setBrief(r.brief);
+    setGuidelines(r.guidelines);
+    setPoolEur(r.poolEur);
+    setTargetCpa(r.targetCpa);
+    setSignupWeight(r.signupWeight);
+    setMode(r.mode);
+    setAgentOpen(false);
+    setStep(4);
+  }
 
   function applyDraft(d: CampaignDraft) {
     if (d.title && !title) setTitle(d.title);
@@ -117,6 +132,10 @@ function CreateWizard() {
       </header>
 
       <section className="nc-wizard-body">
+        {agentOpen ? (
+          <VoiceAgent onDone={applyAgent} onCancel={() => setAgentOpen(false)} />
+        ) : (
+          <>
         {step === 0 && (
           <VoiceStep
             onTranscript={(t, d) => {
@@ -126,6 +145,7 @@ function CreateWizard() {
             }}
             onSkip={() => setStep(1)}
             onSample={fillSample}
+            onTalkToScout={() => setAgentOpen(true)}
           />
         )}
 
@@ -232,6 +252,8 @@ function CreateWizard() {
             </div>
           </div>
         )}
+          </>
+        )}
       </section>
     </div>
   );
@@ -250,10 +272,12 @@ function VoiceStep({
   onTranscript,
   onSkip,
   onSample,
+  onTalkToScout,
 }: {
   onTranscript: (transcript: string, draft: CampaignDraft) => void;
   onSkip: () => void;
   onSample: () => void;
+  onTalkToScout: () => void;
 }) {
   const rec = useRecorder();
   const [busy, setBusy] = useState(false);
@@ -287,6 +311,13 @@ function VoiceStep({
   return (
     <div className="nc-voice">
       <div className="nc-voice-card">
+        <div className="nc-agent-cta">
+          <div>
+            <b>Talk to Scout</b>
+            <span>Voice-first Q&amp;A. Scout asks, you answer, we show a form at the end.</span>
+          </div>
+          <button className="nc-btn-primary" onClick={onTalkToScout}>Start conversation</button>
+        </div>
         <div className="nc-voice-visual">
           <Waveform levels={rec.levels} active={rec.isRecording} />
           <div className="nc-voice-timer">{rec.isRecording ? `${rec.seconds}s` : busy ? "Transcribing..." : "Tap to record"}</div>
