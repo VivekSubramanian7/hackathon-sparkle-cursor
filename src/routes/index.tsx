@@ -443,10 +443,10 @@ function Index() {
             </div>
             <div className="nc-faq">
               {[
-                { q: "Who sets the baseline payout?", a: "You do, per campaign. Baseline is the guaranteed floor every accepted creator earns for posting — it comes out of the pool before the performance split runs." },
+                { q: "Who sets the baseline payout?", a: "Our Influencer Agent sets it for you — benchmarked against current market rates, the creator's geography, and their content category. You approve the number before the pool goes live, so there's no per-creator haggling and every accepted creator sees the same floor on the brief." },
                 { q: "What counts as a 'result' in the split?", a: "You pick the metric when you fund the pool: tracked clicks, attributed conversions, or verified views. Whatever you pick, it's published on the campaign brief so every creator sees the same rule." },
                 { q: "Can a creator earn zero above baseline?", a: "Yes — if their post drives no tracked activity, they still keep the baseline but earn nothing from the performance pool. The upside is uncapped in the other direction." },
-                { q: "How is this different from an affiliate program?", a: "Affiliate is per-creator, per-sale, with rates negotiated one by one. Pool campaigns fix a total budget up front and split what's left of the pool by relative performance — no per-creator rate cards." },
+                { q: "How is this different from other influencer platforms?", a: "Other platforms are directories — they hand you a list of creators and leave the negotiation, rate cards, and payout math to you. No Cap replaces that with one funded pool, one published formula, and one settlement: brands cap total spend up front, creators apply into a rule they can see, and the split follows tracked performance. Variable-cost by design, not by spreadsheet." },
                 { q: "Do I have to use your creator marketplace?", a: "No. You can open a pool to your own creator list, to a public brief, or to marketplace applicants — the split formula is the same either way." },
               ].map((f) => (
                 <details key={f.q}>
