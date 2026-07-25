@@ -27,14 +27,32 @@ export function SiteNav() {
   return (
     <nav className="nc-nav">
       <div className="nc-nav-inner">
-        <Link to="/" className="nc-logo">
-          <Wordmark />
-        </Link>
-        <div className="nc-navlinks">
-          <Link to="/how-it-works">How it works</Link>
-          <Link to="/creators">Creators</Link>
-          <Link to="/thesis">Thesis</Link>
-          <Link to="/faq">FAQ</Link>
+        <div className="nc-nav-left">
+          <Link to="/" className="nc-logo">
+            <Wordmark />
+          </Link>
+          <span className="nc-nav-divider" aria-hidden="true" />
+          <div className="nc-nav-groups">
+            <div className="nc-group">
+              <button type="button" className="nc-group-trigger">
+                For Brands <span className="nc-caret">▾</span>
+              </button>
+              <div className="nc-group-menu">
+                <Link to="/how-it-works"><b>How it works</b><span>The pool → split → payout flow</span></Link>
+                <Link to="/pricing"><b>Pricing</b><span>Take rate on the funded pool</span></Link>
+                <Link to="/start"><b>Start a campaign</b><span>Fund a pool and open applications</span></Link>
+              </div>
+            </div>
+            <div className="nc-group">
+              <button type="button" className="nc-group-trigger">
+                For Creators <span className="nc-caret">▾</span>
+              </button>
+              <div className="nc-group-menu">
+                <Link to="/creators"><b>Creator marketplace</b><span>Real people, one published formula</span></Link>
+                <Link to="/start"><b>Apply to pools</b><span>Baseline + a share sized to results</span></Link>
+              </div>
+            </div>
+          </div>
         </div>
         <div className="nc-navright">
           <Link className="nc-login" to="/login">Login</Link>
@@ -58,8 +76,8 @@ export function SiteFooter() {
             <h5>Product</h5>
             <Link to="/how-it-works">How it works</Link>
             <Link to="/creators">Creators</Link>
+            <Link to="/pricing">Pricing</Link>
             <Link to="/thesis">Thesis</Link>
-            <Link to="/faq">FAQ</Link>
           </div>
           <div className="nc-footer-col">
             <h5>Company</h5>
@@ -94,5 +112,26 @@ export function PageHero({
         {lead ? <p className="lead">{lead}</p> : null}
       </div>
     </header>
+  );
+}
+
+export function PageFaq({ items, title }: { items: { q: string; a: string }[]; title?: string }) {
+  return (
+    <section className="nc-section">
+      <div className="nc-wrap">
+        <div className="nc-section-head">
+          <span className="nc-eyebrow">Frequently asked</span>
+          <h2>{title ?? "Answers, in plain English."}</h2>
+        </div>
+        <div className="nc-faq">
+          {items.map((f) => (
+            <details key={f.q}>
+              <summary>{f.q}</summary>
+              <p>{f.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
