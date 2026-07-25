@@ -4,7 +4,6 @@ import { Waveform } from "@/components/waveform";
 import { useRecorder } from "@/hooks/use-recorder";
 import {
   parseAmount,
-  parseCpa,
   parseMode,
   parseWeight,
 } from "@/domain/structure";
@@ -68,16 +67,6 @@ const QUESTIONS: Question[] = [
       const n = parseAmount(t);
       if (!n || n < 100) return null;
       return { poolEur: n };
-    },
-  },
-  {
-    field: "targetCpa",
-    label: "Target CPA",
-    prompt: "What's your target cost per signup, in euros? Something like 8, 10, or 12.",
-    parse: (t) => {
-      const n = parseCpa(t);
-      if (!n || n <= 0) return null;
-      return { targetCpa: n };
     },
   },
   {
