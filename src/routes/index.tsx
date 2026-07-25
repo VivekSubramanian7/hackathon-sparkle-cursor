@@ -45,20 +45,20 @@ const testimonials = [
   {
     id: 30805103,
     q: "We stopped negotiating rates one creator at a time. A single pool, one formula, and the payout literally follows the traffic.",
-    name: "Maya Chen",
-    role: "Growth, Skincare DTC · 2 pools live",
+    name: "Devon P.",
+    role: "Growth Lead, Magic Spoon (US · Cereal DTC)",
   },
   {
-    id: 15676271,
+    id: 35035634,
     q: "As a creator, I actually see the math. Baseline for showing up, and a real cut of the pool when my post moves.",
-    name: "Camila R.",
-    role: "Creator · 184K on IG",
+    name: "Kai T.",
+    role: "Creator · Fitness · 104K on IG",
   },
   {
     id: 38285050,
     q: "First campaign we ran through No Cap, our top applicant wasn't the biggest name — she was the one with the highest CTR, and she got paid for it.",
-    name: "Priya S.",
-    role: "Founder, Home & Kitchen brand",
+    name: "Aria K.",
+    role: "Founder, BlissClub (India · Activewear DTC)",
   },
 ];
 
