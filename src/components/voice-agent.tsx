@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
-import { Waveform } from "@/components/waveform";
+import { ScoutWaveform } from "@/components/scout-waveform";
 import { useRecorder } from "@/hooks/use-recorder";
 import {
   parseAmount,
