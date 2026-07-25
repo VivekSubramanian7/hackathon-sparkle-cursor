@@ -197,7 +197,6 @@ function Index() {
                     <div className="meta">{c.handle} · {c.followers}</div>
                     <div className="row">
                       <span className="cats">{c.cats}</span>
-                      <span className="rate">{c.rate}</span>
                     </div>
                   </div>
                 </div>
