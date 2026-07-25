@@ -373,6 +373,53 @@ function ReviewForm({
           <span>Applications only. Manager reviews and accepts.</span>
         </button>
       </div>
+      <label>
+        Brand website
+        <input
+          type="url"
+          placeholder="https://yourbrand.com"
+          value={data.website}
+          onChange={(e) => set("website", e.target.value)}
+        />
+      </label>
+      <label>
+        Brand docs (optional)
+        <input
+          type="file"
+          multiple
+          accept=".pdf,.doc,.docx,.ppt,.pptx,.key,.txt,.md,image/*"
+          onChange={(e) => {
+            const files = Array.from(e.target.files ?? []);
+            if (!files.length) return;
+            const added = files.map((f) => ({ name: f.name, size: f.size, type: f.type }));
+            onChange({ ...data, attachments: [...data.attachments, ...added] });
+            e.currentTarget.value = "";
+          }}
+        />
+        {data.attachments.length > 0 && (
+          <ul className="nc-attach-list">
+            {data.attachments.map((a, i) => (
+              <li key={`${a.name}-${i}`}>
+                <span>{a.name}</span>
+                <span className="nc-attach-size">{(a.size / 1024).toFixed(0)} KB</span>
+                <button
+                  type="button"
+                  className="nc-attach-remove"
+                  onClick={() =>
+                    onChange({
+                      ...data,
+                      attachments: data.attachments.filter((_, j) => j !== i),
+                    })
+                  }
+                  aria-label={`Remove ${a.name}`}
+                >
+                  ×
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+      </label>
       <div className="nc-actions">
         <button className="nc-btn-ghost" onClick={onCancel}>Cancel</button>
         <button className="nc-btn-ghost" onClick={onRestart}>Redo voice</button>
