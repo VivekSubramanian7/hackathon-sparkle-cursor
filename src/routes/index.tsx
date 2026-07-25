@@ -82,28 +82,8 @@ function Index() {
   }, [budget, baseline, creators]);
 
   return (
-    <div className="nc-root">
-      <div className="nc-stars" aria-hidden="true" />
-      <div className="nc-content">
-        <nav className="nc-nav">
-          <div className="nc-nav-inner">
-            <div className="nc-logo">
-              <span className="dot" />
-              No Cap
-            </div>
-            <div className="nc-navlinks">
-              <a href="#how">How it works</a>
-              <a href="#try">Try the split</a>
-              <a href="#compare">Why pooled</a>
-              <a href="#fit">Who it's for</a>
-            </div>
-            <div className="nc-navright">
-              <a className="nc-login" href="#">Login</a>
-              <a className="nc-btn nc-btn-primary" href="#get-started">Start for free</a>
-            </div>
-          </div>
-        </nav>
-
+    <SiteShell>
+      <>
         <header className="nc-hero">
           <div className="nc-wrap nc-inner">
             <span className="nc-eyebrow">For DTC brands running influencer campaigns</span>
@@ -112,12 +92,12 @@ function Index() {
               Let <span className="hl">results</span> split it.
             </h1>
             <p className="lead">
-              Fund one campaign pool, open it to creators, and pay every accepted creator a
-              guaranteed baseline — plus a share of the pool sized to what their content
-              actually drives. No cap, that's the whole formula.
+              No Cap turns influencer spend from a fixed cost you commit on faith into a
+              variable cost tied to outcomes. Fund one pool, open applications, pay every
+              accepted creator a guaranteed baseline — then split the rest by tracked results.
             </p>
             <div className="nc-cta-row">
-              <a className="nc-btn nc-btn-primary" href="#get-started">Start a campaign</a>
+              <Link className="nc-btn nc-btn-primary" to="/start">Start a campaign</Link>
               <a className="nc-btn nc-btn-ghost" href="#try">Try the live split</a>
             </div>
           </div>
