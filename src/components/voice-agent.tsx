@@ -91,8 +91,6 @@ const QUESTIONS: Question[] = [
   },
 ];
 
-type Turn = { role: "scout" | "you"; text: string };
-
 export function VoiceAgent({
   initial,
   onDone,
