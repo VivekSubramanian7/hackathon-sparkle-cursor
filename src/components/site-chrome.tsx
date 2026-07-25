@@ -55,8 +55,23 @@ export function SiteNav() {
           </div>
         </div>
         <div className="nc-navright">
-          <Link className="nc-login" to="/login">Login</Link>
-          <Link className="nc-btn nc-btn-primary" to="/start">Start for free</Link>
+          <div className="nc-group nc-login-group">
+            <button type="button" className="nc-group-trigger nc-login-trigger">
+              Login <span className="nc-caret">▾</span>
+            </button>
+            <div className="nc-group-menu nc-login-menu">
+              <div className="nc-login-label">LOGIN AS A</div>
+              <Link to="/login" search={{ role: "creator" }}>
+                <span className="nc-login-ico" aria-hidden="true">✎</span>
+                <b>Creator</b>
+              </Link>
+              <Link to="/login" search={{ role: "brand" }}>
+                <span className="nc-login-ico" aria-hidden="true">🎙</span>
+                <b>Brand</b>
+              </Link>
+            </div>
+          </div>
+          <Link className="nc-btn nc-btn-primary" to="/start">Get access →</Link>
         </div>
       </div>
     </nav>
