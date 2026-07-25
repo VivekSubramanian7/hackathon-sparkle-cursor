@@ -259,7 +259,7 @@ function Index() {
             <div className="nc-section-head">
               <span className="nc-eyebrow">Results, not resumes</span>
               <h2>The pool follows the post that actually moves.</h2>
-              <p>Every tile below is a real creator's payout tracked against real clicks — the split rebalances the moment new performance data lands.</p>
+              <p>An illustration of the mechanic: each tile is a category and the relative lift the winning post drove. The split rebalances the moment new performance data lands — bigger movers claim a bigger share of the same pool.</p>
             </div>
             <div className="nc-voices">
               {voices.map((v, i) => (
