@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
-import { Waveform } from "@/components/waveform";
+import { ScoutWaveform } from "@/components/scout-waveform";
 import { useRecorder } from "@/hooks/use-recorder";
 import {
   parseAmount,
@@ -91,8 +91,6 @@ const QUESTIONS: Question[] = [
   },
 ];
 
-type Turn = { role: "scout" | "you"; text: string };
-
 export function VoiceAgent({
   initial,
   onDone,
@@ -119,7 +117,6 @@ export function VoiceAgent({
   })();
   const [idx, setIdx] = useState(firstUnanswered);
   const [data, setData] = useState<VoiceAgentResult>(seeded);
-  const [turns, setTurns] = useState<Turn[]>([]);
   const [speaking, setSpeaking] = useState(false);
   const [thinking, setThinking] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -131,7 +128,6 @@ export function VoiceAgent({
 
   const speak = useCallback(
     async (text: string) => {
-      setTurns((t) => [...t, { role: "scout", text }]);
       if (muted) return;
       try {
         setSpeaking(true);
@@ -198,7 +194,6 @@ export function VoiceAgent({
         toast.error("Didn't catch that - try again");
         return;
       }
-      setTurns((t) => [...t, { role: "you", text: transcript }]);
       const patch = q.parse(transcript, data);
       if (!patch) {
         void speak("Hmm, I didn't quite get that. Could you say it again?");
@@ -214,7 +209,6 @@ export function VoiceAgent({
   }
 
   function skipQuestion() {
-    setTurns((t) => [...t, { role: "you", text: "(skipped, using default)" }]);
     setIdx((i) => i + 1);
   }
 
@@ -225,70 +219,48 @@ export function VoiceAgent({
 
   return (
     <div className="nc-agent">
-      <header className="nc-agent-head">
-        <div>
-          <p className="nc-eyebrow">Scout · Voice intake</p>
-          <h2>{done ? "Review your draft" : q.label}</h2>
-        </div>
-        <div className="nc-agent-progress">
-          {QUESTIONS.map((qq, i) => (
-            <span key={qq.field} className={i < idx ? "is-done" : i === idx ? "is-current" : ""} />
-          ))}
-        </div>
-      </header>
-
-      <div className="nc-agent-transcript" aria-live="polite">
-        {turns.map((t, i) => (
-          <div key={i} className={`nc-agent-turn is-${t.role}`}>
-            <span className="nc-agent-who">{t.role === "scout" ? "Scout" : "You"}</span>
-            <p>{t.text}</p>
-          </div>
-        ))}
-        {speaking && <div className="nc-agent-turn is-scout is-typing"><span className="nc-agent-who">Scout</span><p>...</p></div>}
-      </div>
-
       {!done && (
-        <div className="nc-voice-card">
-          <div className="nc-voice-visual">
-            <Waveform levels={rec.levels} active={rec.isRecording} />
-            <div className="nc-voice-timer">
-              {rec.isRecording
-                ? `${rec.seconds}s`
-                : thinking
-                  ? "Transcribing..."
-                  : speaking
-                    ? "Scout is speaking..."
-                    : "Tap to answer"}
-            </div>
+        <div className="nc-scout-stage">
+          <p className="nc-eyebrow nc-scout-eyebrow">Scout · {q.label}</p>
+          <button
+            type="button"
+            className="nc-scout-visual"
+            onClick={() => {
+              if (speaking) { stopAudio(); return; }
+              if (rec.isRecording) { void handleStop(); return; }
+              if (thinking || !rec.isSupported) return;
+              void rec.start();
+            }}
+            aria-label={rec.isRecording ? "Stop and send" : "Tap to answer"}
+          >
+            <ScoutWaveform
+              level={rec.level}
+              speaking={speaking}
+              active={rec.isRecording}
+            />
+          </button>
+          <div className="nc-scout-status" aria-live="polite">
+            {rec.isRecording
+              ? `Listening… ${rec.seconds}s`
+              : thinking
+                ? "Transcribing…"
+                : speaking
+                  ? "Scout is speaking…"
+                  : "Tap the wave to answer"}
           </div>
-          <div className="nc-actions nc-voice-actions">
-            {!rec.isRecording ? (
-              <button
-                className="nc-btn-primary"
-                onClick={() => rec.start()}
-                disabled={thinking || speaking || !rec.isSupported}
-              >
-                {rec.isSupported ? "Answer" : "Mic unavailable"}
-              </button>
-            ) : (
-              <button className="nc-btn-primary" onClick={handleStop}>Stop &amp; send</button>
-            )}
-            <button className="nc-btn-ghost" onClick={skipQuestion} disabled={thinking || rec.isRecording}>
+          <div className="nc-scout-actions">
+            <button className="nc-btn-ghost nc-scout-ghost" onClick={skipQuestion} disabled={thinking || rec.isRecording}>
               Skip
             </button>
-            {speaking ? (
-              <button className="nc-btn-ghost" onClick={stopAudio}>Stop voice</button>
-            ) : (
-              <button className="nc-btn-ghost" onClick={() => setMuted((m) => !m)}>
-                {muted ? "Unmute Scout" : "Mute Scout"}
-              </button>
-            )}
+            <button className="nc-btn-ghost nc-scout-ghost" onClick={() => setMuted((m) => !m)} disabled={rec.isRecording}>
+              {muted ? "Unmute" : "Mute"}
+            </button>
             <button
-              className="nc-btn-ghost"
+              className="nc-btn-ghost nc-scout-ghost"
               onClick={() => onCancel(data)}
               disabled={rec.isRecording}
             >
-              Switch to form (keep answers)
+              Switch to text
             </button>
           </div>
           {rec.error && <p className="nc-voice-error">{rec.error}</p>}
@@ -303,7 +275,6 @@ export function VoiceAgent({
           onRestart={() => {
             spokenRef.current = new Set();
             setData(DEFAULTS);
-            setTurns([]);
             setIdx(0);
           }}
           onCancel={() => onCancel(data)}

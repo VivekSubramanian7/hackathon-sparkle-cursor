@@ -35,7 +35,7 @@ function CreateWizard() {
   const navigate = useNavigate();
   const { createDraft, fundCampaign } = useDemoStore();
   const [step, setStep] = useState<Step>(0);
-  const [agentOpen, setAgentOpen] = useState(false);
+  const [agentOpen, setAgentOpen] = useState(true);
   const [transcript, setTranscript] = useState("");
   const [title, setTitle] = useState("");
   const [brandName, setBrandName] = useState("");

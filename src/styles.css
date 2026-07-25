@@ -1157,6 +1157,39 @@
 
 /* Voice agent (Scout) */
 .nc-agent { display: grid; gap: 1.25rem; }
+.nc-scout-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 3.5rem 1.5rem 2.5rem;
+  min-height: 60vh;
+}
+.nc-scout-eyebrow { margin: 0; color: rgba(17,17,17,0.55); }
+.nc-scout-visual {
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 24px;
+  transition: transform 0.2s ease;
+}
+.nc-scout-visual:hover { transform: scale(1.02); }
+.nc-scout-visual:focus-visible { outline: 2px solid var(--nc-accent); outline-offset: 8px; }
+.nc-scout-wave { display: block; }
+.nc-scout-status {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: rgba(17,17,17,0.6);
+  text-transform: uppercase;
+}
+.nc-scout-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; justify-content: center; }
+.nc-scout-ghost { font-size: 13px; }
 .nc-agent-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem; }
 .nc-agent-head h2 { margin: 0.25rem 0 0; font-family: "Instrument Serif", serif; font-size: 1.75rem; }
 .nc-agent-progress { display: flex; gap: 4px; }
