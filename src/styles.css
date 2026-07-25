@@ -940,6 +940,39 @@
 .nc-logos-strip { padding: 56px 0 40px; border-top: 1px solid var(--nc-line, rgba(17,17,17,.08)); }
 .nc-logos-label { text-align: center; font-family: "Instrument Serif", Georgia, serif; font-size: 22px; color: #111; margin-bottom: 28px; }
 .nc-logos-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 44px 56px; }
+
+.nc-marquee {
+  overflow: hidden;
+  width: 100%;
+  mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+}
+.nc-marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 72px;
+  width: max-content;
+  animation: nc-marquee 40s linear infinite;
+}
+.nc-marquee:hover .nc-marquee-track { animation-play-state: paused; }
+.nc-marquee-logo {
+  height: 40px;
+  width: auto;
+  max-width: 180px;
+  object-fit: contain;
+  opacity: 0.75;
+  filter: grayscale(100%);
+  transition: opacity .2s ease, filter .2s ease;
+  flex-shrink: 0;
+}
+.nc-marquee-logo:hover { opacity: 1; filter: none; }
+@keyframes nc-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .nc-marquee-track { animation: none; }
+}
 .nc-logo-mark { font-family: "IBM Plex Mono", ui-monospace, monospace; font-weight: 600; font-size: 18px; letter-spacing: .04em; color: #111; opacity: .72; text-transform: none; }
 .nc-logo-mark:nth-child(3n) { font-family: "Instrument Serif", Georgia, serif; font-size: 24px; letter-spacing: 0; opacity: .82; }
 
@@ -1014,7 +1047,7 @@
 .nc-ft-actions { display: flex; gap: 8px; flex-wrap: wrap; }
 .nc-btn.sm { padding: 8px 14px; font-size: 13px; }
 
-/* Auth split layout — passionfroot-style */
+/* Auth split layout - passionfroot-style */
 .nc-auth-split { display: grid; grid-template-columns: 1.05fr 1fr; gap: 0; border: 1px solid rgba(17,17,17,.08); border-radius: 24px; overflow: hidden; background: #fff; box-shadow: 0 20px 60px -30px rgba(17,17,17,.15); }
 @media (max-width: 900px) { .nc-auth-split { grid-template-columns: 1fr; } }
 .nc-auth-aside { padding: 40px; display: flex; flex-direction: column; justify-content: space-between; gap: 32px; min-height: 520px; position: relative; overflow: hidden; }

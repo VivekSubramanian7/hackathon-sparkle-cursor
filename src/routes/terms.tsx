@@ -4,7 +4,7 @@ import { PageHero, SiteShell } from "@/components/site-chrome";
 export const Route = createFileRoute("/terms")({
   head: () => ({
     meta: [
-      { title: "Terms — Ground rules for pools, baselines, and payouts | No Cap" },
+      { title: "Terms - Ground rules for pools, baselines, and payouts | No Cap" },
       { name: "description", content: "Terms for brands funding pools and creators applying in: baselines guaranteed on post, performance share settled by the published formula, no metric manipulation." },
       { property: "og:title", content: "No Cap terms of service" },
       { property: "og:description", content: "How funded pools, baselines, and performance splits are governed." },
@@ -25,7 +25,7 @@ function TermsPage() {
           <p>Baseline is guaranteed on post. Performance share is paid when the tracking window closes. Creators agree not to manipulate the tracked metric via bots, click farms, or paid amplification not disclosed on the brief.</p>
           <h3>Formula</h3>
           <p>payout(creator) = baseline + (creator_result ÷ total_results) × remaining_pool. This formula is fixed for a campaign once creators are approved.</p>
-          <p>This is a mockup prototype for a hackathon — not a binding agreement.</p>
+          <p>This is a mockup prototype for a hackathon - not a binding agreement.</p>
         </div>
       </section>
     </SiteShell>

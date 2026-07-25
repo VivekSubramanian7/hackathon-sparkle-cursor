@@ -4,9 +4,9 @@ import { PageFaq, PageHero, SiteShell } from "@/components/site-chrome";
 export const Route = createFileRoute("/pricing")({
   head: () => ({
     meta: [
-      { title: "Pricing — Take rate on the funded pool | No Cap" },
-      { name: "description", content: "No per-seat fees, no per-creator rate cards. No Cap takes a transparent share of the funded pool — the same variable-cost logic we apply to creator payouts applies to us." },
-      { property: "og:title", content: "No Cap pricing — a share of the pool, not a subscription" },
+      { title: "Pricing - Take rate on the funded pool | No Cap" },
+      { name: "description", content: "No per-seat fees, no per-creator rate cards. No Cap takes a transparent share of the funded pool - the same variable-cost logic we apply to creator payouts applies to us." },
+      { property: "og:title", content: "No Cap pricing - a share of the pool, not a subscription" },
       { property: "og:description", content: "Fund the pool, publish the formula, pay a transparent take rate on what settles." },
     ],
   }),
@@ -19,7 +19,7 @@ const tiers = [
     name: "Free",
     take: "$0",
     sub: "1 free campaign / month",
-    who: "Small DTC brands finding their first creator flywheel. Run one funded pool a month, on us — same baseline + split mechanics, no take rate.",
+    who: "Small DTC brands finding their first creator flywheel. Run one funded pool a month, on us - same baseline + split mechanics, no take rate.",
     perks: [
       "1 live pool per month",
       "Baseline + performance-split payouts",
@@ -33,7 +33,7 @@ const tiers = [
     name: "Growth",
     take: "7%",
     sub: "of each campaign budget",
-    who: "Brands running always-on UGC pools. Fund as many pools as you need — we take a flat 7% of each campaign budget, deducted at funding.",
+    who: "Brands running always-on UGC pools. Fund as many pools as you need - we take a flat 7% of each campaign budget, deducted at funding.",
     perks: [
       "Unlimited concurrent pools",
       "Attributed conversions as split metric",
@@ -60,10 +60,10 @@ const tiers = [
 ];
 
 const faqs = [
-  { q: "What's actually free on the Free plan?", a: "One funded pool per month for small brands starting out. Same baseline + performance-split mechanics as the paid tiers — we just don't take a cut on that campaign." },
+  { q: "What's actually free on the Free plan?", a: "One funded pool per month for small brands starting out. Same baseline + performance-split mechanics as the paid tiers - we just don't take a cut on that campaign." },
   { q: "Do you charge per seat or per creator?", a: "No. There are no per-seat, per-user, or per-creator fees. On Growth we take 7% of each campaign budget; on Free we take nothing." },
   { q: "When is the 7% deducted on Growth?", a: "At pool funding. The number you see in the campaign is the true spend cap; nothing else gets added downstream." },
-  { q: "What if a creator earns only the baseline?", a: "Baseline is always paid on post. Our take is calculated on the funded campaign budget up front, not on the residual — so paying baseline-only creators doesn't change what you owe us." },
+  { q: "What if a creator earns only the baseline?", a: "Baseline is always paid on post. Our take is calculated on the funded campaign budget up front, not on the residual - so paying baseline-only creators doesn't change what you owe us." },
   { q: "What does Enterprise unlock beyond Growth?", a: "AI influencers and synthetic UGC, a negotiated take rate against committed quarterly pool volume, custom attribution windows, and a dedicated pool operator with an SLA on payout settlement." },
 ];
 

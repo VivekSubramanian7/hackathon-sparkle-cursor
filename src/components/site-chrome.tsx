@@ -118,7 +118,7 @@ export function SiteFooter() {
       <div className="nc-wrap nc-footer-grid">
         <div className="nc-footer-brand">
           <Link to="/" className="nc-logo"><Wordmark /></Link>
-          <p>No lying about the split — pooled, performance-based influencer budgets for DTC brands.</p>
+          <p>No lying about the split - pooled, performance-based influencer budgets for DTC brands.</p>
         </div>
         <div className="nc-footer-cols">
           <div className="nc-footer-col">

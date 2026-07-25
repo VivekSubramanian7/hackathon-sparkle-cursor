@@ -4,9 +4,9 @@ import { PageHero, SiteShell } from "@/components/site-chrome";
 export const Route = createFileRoute("/signup")({
   head: () => ({
     meta: [
-      { title: "Sign up — Creator or Brand | No Cap" },
+      { title: "Sign up - Creator or Brand | No Cap" },
       { name: "description", content: "Pick your role to get started on No Cap. Creators apply into pools; brands fund pools and open applications." },
-      { property: "og:title", content: "Join No Cap — one pool, one formula, one payout" },
+      { property: "og:title", content: "Join No Cap - one pool, one formula, one payout" },
       { property: "og:description", content: "Pick your role to get started." },
     ],
   }),
@@ -19,7 +19,7 @@ function SignupPicker() {
       <PageHero
         eyebrow="Welcome to No Cap"
         title={<>Pick your role to <span className="hl">get started</span>.</>}
-        lead="One pool, one published formula, one payout — however you're joining."
+        lead="One pool, one published formula, one payout - however you're joining."
       />
       <section className="nc-section">
         <div className="nc-wrap">
@@ -37,7 +37,7 @@ function SignupPicker() {
                 <span>📈</span><span>💻</span>
               </div>
               <b>I'm a Brand</b>
-              <p>Fund a pool, open applications, and watch the split rebalance live — no per-creator negotiation, capped total spend.</p>
+              <p>Fund a pool, open applications, and watch the split rebalance live - no per-creator negotiation, capped total spend.</p>
               <span className="nc-role-cta">Sign up as a Brand →</span>
             </Link>
           </div>
