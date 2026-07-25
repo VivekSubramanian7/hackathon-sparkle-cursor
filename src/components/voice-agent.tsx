@@ -277,7 +277,6 @@ export function VoiceAgent({
           onRestart={() => {
             spokenRef.current = new Set();
             setData(DEFAULTS);
-            setTurns([]);
             setIdx(0);
           }}
           onCancel={() => onCancel(data)}
