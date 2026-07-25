@@ -151,6 +151,48 @@ export function SiteFooter() {
   );
 }
 
+function DemoBar() {
+  const { state, setRole, resetDemo } = useDemoStore();
+  const navigate = useNavigate();
+  return (
+    <div className="nc-demobar" role="region" aria-label="Demo controls">
+      <span className="nc-demobar-label">Demo</span>
+      <div className="nc-demobar-toggle">
+        <button
+          type="button"
+          className={state.role === "brand" ? "is-on" : ""}
+          onClick={() => {
+            setRole("brand");
+            navigate({ to: "/brand/campaigns" });
+          }}
+        >
+          Brand
+        </button>
+        <button
+          type="button"
+          className={state.role === "creator" ? "is-on" : ""}
+          onClick={() => {
+            setRole("creator");
+            navigate({ to: "/campaigns" });
+          }}
+        >
+          Creator
+        </button>
+      </div>
+      <button
+        type="button"
+        className="nc-demobar-reset"
+        onClick={() => {
+          resetDemo();
+          toast.success("Demo reset");
+        }}
+      >
+        Reset
+      </button>
+    </div>
+  );
+}
+
 export function PageHero({
   eyebrow,
   title,
